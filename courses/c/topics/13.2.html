@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Logic-Based Programs – C Practice – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+     <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+    <ul class="nav-links">
+    
+    </ul>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1><i class="fa-solid fa-lightbulb"></i> 13.2 Logic-Based Programs</h1>
+
+    <!-- Intro -->
+    <section>
+      <h2><i class="fa-solid fa-brain"></i> Introduction</h2>
+      <p>
+        Logic-based programs sharpen your problem-solving skills using decisions, loops,
+        and math. Start simple, then optimize your approach.
+      </p>
+    </section>
+
+    <!-- Program List -->
+    <section>
+      <h2><i class="fa-solid fa-list"></i> Popular Logic Programs</h2>
+      <ul>
+        <li>Check if a number is Armstrong</li>
+        <li>Reverse a number</li>
+        <li>Check if a string is a palindrome</li>
+        <li>Factorial of a number (recursion)</li>
+        <li>Check if a number is a palindrome</li>
+        <li>Find GCD and LCM of two numbers</li>
+        <li>Generate Pascal’s Triangle</li>
+        <li>Count digits, vowels, consonants in a string</li>
+        <li>Sort an array (Bubble Sort)</li>
+      </ul>
+    </section>
+
+    <!-- Cheat Sheet -->
+    <section>
+      <h2><i class="fa-solid fa-table-list"></i> Quick Cheat-Sheet</h2>
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Problem</th>
+              <th>Core Idea</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Problem">Palindrome (number/string)</td>
+              <td data-label="Core Idea">Reverse and compare with original</td>
+            </tr>
+            <tr>
+              <td data-label="Problem">Armstrong number</td>
+              <td data-label="Core Idea">Sum of each digit power(len)  equals number</td>
+            </tr>
+            <tr>
+              <td data-label="Problem">Factorial</td>
+              <td data-label="Core Idea">n! = n × (n−1)! with base case 0!/1! = 1</td>
+            </tr>
+            <tr>
+              <td data-label="Problem">GCD / LCM</td>
+              <td data-label="Core Idea">Euclid’s algorithm; LCM = (a×b)/GCD</td>
+            </tr>
+            <tr>
+              <td data-label="Problem">Bubble Sort</td>
+              <td data-label="Core Idea">Swap adjacent if out of order; repeat passes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Example 1: Palindrome -->
+    <section>
+      <h2><i class="fa-solid fa-code"></i> Example 1: Palindrome Number</h2>
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num, rev = 0, rem, original;
+    printf("Enter a number: ");
+    if (scanf("%d", &amp;num) != 1) return 0;
+    original = num;
+
+    while (num != 0) {
+        rem = num % 10;
+        rev = rev * 10 + rem;
+        num /= 10;
+    }
+
+    if (original == rev)
+        printf("Palindrome!\n");
+    else
+        printf("Not a palindrome.\n");
+
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Sample Output:</strong><br>
+        Enter a number: 121<br>
+        Palindrome!
+      </div>
+    </section>
+
+    <!-- Example 2: Armstrong -->
+    <section>
+      <h2><i class="fa-solid fa-flask"></i> Example 2: Armstrong Number</h2>
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int main() {
+    int n, temp, digits = 0;
+    long long sum = 0;
+    printf("Enter a number: ");
+    if (scanf("%d", &amp;n) != 1) return 0;
+
+    temp = n;
+    while (temp != 0) { digits++; temp /= 10; }
+    temp = n;
+
+    while (temp != 0) {
+        int d = temp % 10;
+        sum += (long long)pow(d, digits);
+        temp /= 10;
+    }
+
+    if (sum == n) printf("Armstrong number\n");
+    else          printf("Not an Armstrong number\n");
+    return 0;
+}</code></pre>
+    </section>
+
+    <!-- Try It Yourself Compiler -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Try It Yourself</h2>
+
+      <div class="code-section">
+        <textarea id="cCode" spellcheck="false">
+// Logic Program Playground — ALGONIMO
+// Try editing this code and click "Run Code"!
+
+#include <stdio.h>
+
+int is_palindrome(int x) {
+    int original = x, rev = 0;
+    while (x != 0) {
+        rev = rev * 10 + (x % 10);
+        x /= 10;
+    }
+    return original == rev;
+}
+
+int gcd(int a, int b) {
+    while (b != 0) {
+        int t = b;
+        b = a % b;
+        a = t;
+    }
+    return a;
+}
+
+int main() {
+    int choice;
+    printf("1) Palindrome  2) GCD\nChoose: ");
+    if (scanf("%d", &choice) != 1) return 0;
+
+    if (choice == 1) {
+        int n;
+        printf("Enter number: ");
+        scanf("%d", &n);
+        printf(is_palindrome(n) ? "Palindrome\n" : "Not Palindrome\n");
+    } else if (choice == 2) {
+        int a, b;
+        printf("Enter two numbers: ");
+        scanf("%d %d", &a, &b);
+        printf("GCD = %d\n", gcd(a, b));
+    } else {
+        printf("Invalid choice\n");
+    }
+    return 0;
+}
+        </textarea>
+
+        <div class="input-section">
+          <label for="userInput"><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Example:
+1
+121
+"></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+    </section>
+
+    <!-- Tip -->
+    <section>
+      <h2><i class="fa-solid fa-wrench"></i> Tips</h2>
+      <ul>
+        <li>Break the problem into tiny steps (inputs → processing → outputs).</li>
+        <li>Trace a few sample cases by hand before coding.</li>
+        <li>Print intermediate values when debugging.</li>
+      </ul>
+    </section>
+
+    <!-- Navigation -->
+    <div class="topic-navigation">
+      <a href="13.1.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Beginner Practice Questions
+      </a>
+
+      <a href="13.3.html" class="next-btn">
+        Next: Mini Projects <i class="fa-solid fa-angles-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- ✅ Scripts -->
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+</body>
+</html>

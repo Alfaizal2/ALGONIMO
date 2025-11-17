@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pointers with Arrays – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Topic Content -->
+  <main class="topic-page">
+
+    <h1>8.3 Pointers with Arrays</h1>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Understanding Pointers with Arrays</h2>
+      <p>
+        In C, the name of an array acts like a constant pointer to its first element.  
+        This allows pointers to access and manipulate array elements efficiently.
+      </p>
+
+      <ul>
+        <li><code>arr</code> → points to <code>&arr[0]</code></li>
+        <li><code>*(arr + i)</code> → accesses element at index <code>i</code></li>
+        <li>Pointers make traversal faster and more flexible</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Example 1 -->
+    <section>
+      <h2><i class="fas fa-code"></i> Accessing Array Elements Using Pointers</h2>
+
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[] = {10, 20, 30, 40, 50};
+    int *ptr = arr;   // same as &arr[0]
+
+    for (int i = 0; i &lt; 5; i++) {
+        printf("Element %d = %d\n", i, *(ptr + i));
+    }
+
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        Element 0 = 10<br>
+        Element 1 = 20<br>
+        Element 2 = 30<br>
+        Element 3 = 40<br>
+        Element 4 = 50
+      </div>
+    </section>
+
+    <!-- ✅ How It Works -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> How It Works</h2>
+      <ul>
+        <li><code>ptr</code> stores address of first element</li>
+        <li><code>ptr + 1</code> jumps to next integer location</li>
+        <li><code>*(ptr + i)</code> gives the actual value at that location</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Example 2 -->
+    <section>
+      <h2><i class="fas fa-pen-to-square"></i> Modifying Array Using Pointers</h2>
+      <p>You can update array values directly through pointer arithmetic.</p>
+
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int arr[] = {1, 2, 3};
+    int *ptr = arr;
+
+    *(ptr + 1) = 20;   // modify second element
+
+    for (int i = 0; i &lt; 3; i++) {
+        printf("%d ", arr[i]);
+    }
+
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        1 20 3
+      </div>
+    </section>
+
+    <!-- ✅ Neon Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Expression"><code>arr</code></td>
+              <td data-label="Meaning">Points to first element</td>
+            </tr>
+
+            <tr>
+              <td data-label="Expression"><code>*(arr + i)</code></td>
+              <td data-label="Meaning">Gets element at index <code>i</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Expression"><code>ptr = arr</code></td>
+              <td data-label="Meaning">Pointer now points to array</td>
+            </tr>
+
+            <tr>
+              <td data-label="Expression"><code>ptr + i</code></td>
+              <td data-label="Meaning">Moves pointer to next elements</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Live Compiler -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try It Yourself (Run Code)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+// Pointers with Arrays - Test Program
+#include <stdio.h>
+
+int main() {
+    int arr[] = {10, 20, 30};
+    int *ptr = arr;
+
+    printf("Value 1: %d\n", *ptr);
+    printf("Value 2: %d\n", *(ptr + 1));
+    printf("Value 3: %d\n", *(ptr + 2));
+
+    return 0;
+}
+        </textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Enter input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="8.2.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Pointer Arithmetic
+      </a>
+
+      <a href="8.4.html" class="next-btn">
+        Next: Pointers with Functions <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

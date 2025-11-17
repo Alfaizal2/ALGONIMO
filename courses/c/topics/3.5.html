@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Comments in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Top Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Topic Content -->
+  <main class="topic-page">
+
+    <h1>3.5 Comments in C</h1>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-comment-dots"></i> What Are Comments?</h2>
+      <p>
+        Comments are text notes written inside the source code to explain logic, steps, or purpose of code.
+        The compiler <strong>ignores comments</strong>, meaning they do not affect your program’s output.
+        Comments help programmers understand code more easily — especially when working in teams or revisiting old code.
+      </p>
+
+      <div class="feature-list">
+        <ul>
+          <li>Improves readability</li>
+          <li>Makes debugging easier</li>
+          <li>Helps document complex code</li>
+          <li>Ignored by compiler, safe for notes</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ✅ Types of Comments -->
+    <section>
+      <h2><i class="fas fa-list-ul"></i> Types of Comments in C</h2>
+
+      <ul>
+        <li>
+          <strong>Single-line Comment:</strong>  
+          Begins with <code>//</code>  
+          Used for brief notes.
+        </li>
+
+        <li>
+          <strong>Multi-line Comment:</strong>  
+          Enclosed between <code>/* ... */</code>  
+          Used for longer explanations.
+        </li>
+      </ul>
+    </section>
+
+    <!-- ✅ Examples -->
+    <section>
+      <h2><i class="fas fa-code"></i> Examples</h2>
+
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+
+    // ✅ This is a single-line comment
+    printf("Hello, ALGONIMO!\n");
+
+    /* ✅ This is a multi-line comment
+       You can write long explanations here
+       across multiple lines */
+    printf("Learning comments is easy!");
+
+    return 0;
+}
+</code></pre>
+    </section>
+
+    <!-- ✅ Best Practices -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Best Practices</h2>
+
+      <ul>
+        <li>Use comments to explain <strong>why</strong> the code exists, not what it does.</li>
+        <li>Keep comments clear and simple.</li>
+        <li>Don’t overuse comments — clean code should be self-explanatory.</li>
+        <li>Avoid writing outdated comments that no longer match the code.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Interactive Compiler -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try It Yourself (Compiler)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+
+    // Print a message
+    printf("Hello ALGONIMO Learner!\n");
+
+    /* Multi-line comment example:
+       This program prints two lines
+       using printf()
+    */
+    printf("Comments make code readable!\n");
+
+    return 0;
+}
+</textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here if required..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+
+      <a href="3.4.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Input & Output in C
+      </a>
+
+      <a href="3.6.html" class="next-btn">
+        Next: Escape Sequences <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+<script src="../../../assets/js/topic.js"></script>
+</body>
+</html>

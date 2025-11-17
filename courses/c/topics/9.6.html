@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Structures vs Unions – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>9.6 Structures vs Unions</h1>
+
+    <!-- ✅ Overview -->
+    <section>
+      <h2><i class="fas fa-book-open-reader"></i> Overview</h2>
+      <p>
+        Structures and unions are user-defined data types in C. Both allow grouping variables
+        of different data types, but they differ in <strong>memory allocation</strong> and <strong>usage behavior</strong>.
+      </p>
+      <p>
+        ✅ Use <strong>structures</strong> when you need to store all values simultaneously.<br>
+        ✅ Use <strong>unions</strong> when memory is limited or only one value is used at a time.
+      </p>
+    </section>
+
+    <!-- ✅ Neon Comparison Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Key Differences</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Structure</th>
+              <th>Union</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Feature">Memory Allocation</td>
+              <td data-label="Structure">Each member gets separate memory.</td>
+              <td data-label="Union">All members share one memory block.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Feature">Total Size</td>
+              <td data-label="Structure">Sum of all members.</td>
+              <td data-label="Union">Equal to largest member.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Feature">Value Storage</td>
+              <td data-label="Structure">All members can store values simultaneously.</td>
+              <td data-label="Union">Only one valid member at a time.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Feature">Use Case</td>
+              <td data-label="Structure">Store complete records (student, employee).</td>
+              <td data-label="Union">Memory-efficient representation (sensor data, hardware values).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Example Comparison -->
+    <section>
+      <h2><i class="fas fa-code"></i> Example Comparison</h2>
+
+<pre><code>// Structure example
+struct Student {
+    int roll;
+    float marks;
+};
+
+// Union example
+union Item {
+    int code;
+    float price;
+};
+</code></pre>
+
+      <p>
+        ✅ In a <strong>structure</strong>, both <code>roll</code> and <code>marks</code> have their own memory.<br>
+        ✅ In a <strong>union</strong>, <code>code</code> and <code>price</code> share the same memory.
+      </p>
+    </section>
+
+    <!-- ✅ Compiler Section -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Try It Yourself (Run Code)</h2>
+
+      <div class="code-section">
+        <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+struct S {
+    int a;
+    float b;
+};
+
+union U {
+    int a;
+    float b;
+};
+
+int main() {
+    struct S s;
+    union U u;
+
+    s.a = 10;
+    s.b = 5.5;
+
+    u.a = 10;
+    u.b = 5.5; // overwrites u.a
+
+    printf("Structure: a=%d, b=%.1f\n", s.a, s.b);
+
+    printf("Union: a=%d (corrupted), b=%.1f\n", u.a, u.b);
+
+    return 0;
+}
+        </textarea>
+
+        <div class="input-section">
+          <strong>Input (stdin):</strong>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Summary Section -->
+    <section>
+      <h2><i class="fas fa-circle-check"></i> Conclusion</h2>
+      <p>
+        ✅ Choose <strong>Structures</strong> when storing multiple fields that must exist together.<br>
+        ✅ Choose <strong>Unions</strong> when optimizing memory or storing one value at a time.
+      </p>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="9.5.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Introduction to Unions
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

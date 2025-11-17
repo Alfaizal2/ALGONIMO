@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Character Arrays vs String Library – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo"><a href="../c.html" style="color:inherit;">ALGONIMO</a></div>
+  </nav>
+
+  <!-- ✅ Topic Content -->
+  <main class="topic-page">
+
+    <h1>7.5 Character Arrays vs String Library</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Introduction</h2>
+      <p>
+        In C, strings are represented using <strong>character arrays</strong>.  
+        There are two ways to handle them:
+      </p>
+      <ul>
+        <li><strong>Character Arrays</strong> – Manual handling of characters and null terminator.</li>
+        <li><strong>String Library</strong> – Uses built-in functions from <code>&lt;string.h&gt;</code>.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Example 1 -->
+    <section>
+      <h2><i class="fas fa-keyboard"></i> Example 1: Manual Character Array</h2>
+
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char name[] = {'A', 'l', 'g', 'o', 'n', 'i', 'm', 'o', '\0'};
+    printf("Name: %s", name);
+    return 0;
+}</code></pre>
+
+      <div class="output">Name: Algonimo</div>
+
+      <p><strong>Explanation:</strong>  
+        You manually create the character array and ensure it ends with <code>'\0'</code>.
+      </p>
+    </section>
+
+    <!-- ✅ Example 2 -->
+    <section>
+      <h2><i class="fas fa-copy"></i> Example 2: Using String Library</h2>
+
+      <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char name[50];
+    strcpy(name, "Algonimo");
+    printf("Name: %s", name);
+    return 0;
+}</code></pre>
+
+      <div class="output">Name: Algonimo</div>
+
+      <p><strong>Explanation:</strong>  
+        <code>strcpy()</code> handles copying and null-termination automatically.
+      </p>
+    </section>
+
+    <!-- ✅ Neon Comparison Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Comparison Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Character Arrays</th>
+              <th>String Library</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Feature">Memory Handling</td>
+              <td data-label="Character Arrays">Manual control of each character</td>
+              <td data-label="String Library">Automatic handling via functions</td>
+            </tr>
+
+            <tr>
+              <td data-label="Feature">Ease of Use</td>
+              <td data-label="Character Arrays">Complex for long strings</td>
+              <td data-label="String Library">Very easy using built-in helpers</td>
+            </tr>
+
+            <tr>
+              <td data-label="Feature">Function Support</td>
+              <td data-label="Character Arrays">None (manual operations)</td>
+              <td data-label="String Library">
+                Many: <code>strlen()</code>, <code>strcpy()</code>, <code>strcmp()</code>, <code>strcat()</code>
+              </td>
+            </tr>
+
+            <tr>
+              <td data-label="Feature">Flexibility</td>
+              <td data-label="Character Arrays">High (low-level control)</td>
+              <td data-label="String Library">Limited but convenient</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Summary -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Summary</h2>
+      <ul>
+        <li>Character arrays form the backbone of strings in C.</li>
+        <li>The string library simplifies most string operations.</li>
+        <li>Use character arrays for low-level control; use <code>&lt;string.h&gt;</code> for practical programming.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Try it Yourself -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try it Yourself (Run the Code!)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char a[20] = "Hello";
+    char b[20];
+
+    strcpy(b, a);
+    printf("Copied: %s\n", b);
+
+    printf("Length: %lu\n", strlen(a));
+
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="7.4.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: String Functions
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

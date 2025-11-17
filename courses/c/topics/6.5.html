@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Storage Classes in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Topic Page -->
+  <main class="topic-page">
+
+    <h1>6.5 Storage Classes in C</h1>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Introduction</h2>
+      <p>
+        Storage classes in C determine the <strong>scope</strong> (where a variable can be accessed),
+        <strong>lifetime</strong> (how long it exists in memory),
+        and <strong>default initial value</strong>.
+      </p>
+
+      <p>The four main storage classes are:</p>
+      <ul>
+        <li><code>auto</code> – default local variable</li>
+        <li><code>static</code> – retains value between function calls</li>
+        <li><code>extern</code> – refers to a global variable from another file</li>
+        <li><code>register</code> – suggests fast access using CPU registers</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Neon Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Storage Class Overview</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Storage Class</th>
+              <th>Scope</th>
+              <th>Lifetime</th>
+              <th>Default Value</th>
+              <th>Keyword</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Storage Class">auto</td>
+              <td data-label="Scope">Local to block</td>
+              <td data-label="Lifetime">Until function ends</td>
+              <td data-label="Default Value">Garbage value</td>
+              <td data-label="Keyword"><code>auto</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Storage Class">static</td>
+              <td data-label="Scope">Local or Global</td>
+              <td data-label="Lifetime">Entire program</td>
+              <td data-label="Default Value">Zero (0)</td>
+              <td data-label="Keyword"><code>static</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Storage Class">extern</td>
+              <td data-label="Scope">Global (across files)</td>
+              <td data-label="Lifetime">Entire program</td>
+              <td data-label="Default Value">Zero (0)</td>
+              <td data-label="Keyword"><code>extern</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Storage Class">register</td>
+              <td data-label="Scope">Local</td>
+              <td data-label="Lifetime">Until function ends</td>
+              <td data-label="Default Value">Garbage value</td>
+              <td data-label="Keyword"><code>register</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Example Program -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example Program</h2>
+
+      <pre><code>#include &lt;stdio.h&gt;
+
+// static variable example
+void demoStatic() {
+    static int count = 0; // retains value between calls
+    count++;
+    printf("Static count: %d\n", count);
+}
+
+int main() {
+
+    auto int a = 10;        // auto is default local variable
+    register int r = 5;     // suggested for fast access
+
+    printf("Auto variable: %d\n", a);
+    printf("Register variable: %d\n", r);
+
+    demoStatic();
+    demoStatic();
+    demoStatic();
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <!-- ✅ Output -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Output</h2>
+      <div class="output">
+        Auto variable: 10<br>
+        Register variable: 5<br>
+        Static count: 1<br>
+        Static count: 2<br>
+        Static count: 3
+      </div>
+    </section>
+
+    <!-- ✅ Output Explanation -->
+    <section>
+      <h2><i class="fas fa-brain"></i> Output Explanation</h2>
+      <ul>
+        <li><strong>auto:</strong> A normal local variable, destroyed after the function ends.</li>
+        <li><strong>register:</strong> Suggested to be stored in CPU registers for faster access.</li>
+        <li><strong>static:</strong> Retains its value across multiple function calls.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ When Should You Use Them -->
+    <section>
+      <h2><i class="fas fa-bookmark"></i> When Should You Use Them?</h2>
+      <ul>
+        <li><strong>auto:</strong> Default choice for local variables.</li>
+        <li><strong>static:</strong> When the value must persist between calls.</li>
+        <li><strong>extern:</strong> When accessing global variables from other files.</li>
+        <li><strong>register:</strong> For frequently used variables like loop counters.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Interactive Compiler Section -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try it Yourself (Run the Code!)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+void demoStatic() {
+    static int count = 0;
+    count++;
+    printf("Static count: %d\n", count);
+}
+
+int main() {
+    auto int a = 15;
+    register int r = 7;
+
+    printf("Auto variable: %d\n", a);
+    printf("Register variable: %d\n", r);
+
+    demoStatic();
+    demoStatic();
+
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label for="userInput"><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="6.4.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Recursion
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

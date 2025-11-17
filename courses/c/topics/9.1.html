@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Defining Structures – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>9.1 Defining Structures</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> What is a Structure?</h2>
+      <p>
+        A <strong>structure</strong> in C is a user-defined data type that groups variables of
+        different data types under a single name.  
+        It is commonly used to represent real-world entities like:
+      </p>
+
+      <ul>
+        <li>Student (ID, name, marks)</li>
+        <li>Employee (ID, salary, department)</li>
+        <li>Product (price, code, quantity)</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Syntax Section -->
+    <section>
+      <h2><i class="fas fa-code"></i> Structure Syntax</h2>
+
+      <pre><code>struct StructureName {
+    data_type member1;
+    data_type member2;
+    ...
+};</code></pre>
+
+      <p><strong>Declaring variables:</strong></p>
+      <pre><code>struct StructureName var1, var2;</code></pre>
+    </section>
+
+    <!-- ✅ Example With Compiler -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example: Defining a Student Structure</h2>
+
+      <div class="code-section">
+        <h2><i class="fas fa-terminal"></i> Sample Code (Run it!)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    int id;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    struct Student s1;
+
+    s1.id = 101;
+    strcpy(s1.name, "John");
+    s1.marks = 88.5;
+
+    printf("ID: %d\n", s1.id);
+    printf("Name: %s\n", s1.name);
+    printf("Marks: %.2f\n", s1.marks);
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+      <pre><code>ID: 101
+Name: John
+Marks: 88.50</code></pre>
+
+    </section>
+
+    <!-- ✅ Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Keyword / Syntax</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Keyword"><code>struct</code></td>
+              <td data-label="Description">Used to define a structure</td>
+            </tr>
+
+            <tr>
+              <td data-label="Keyword"><code>struct Student</code></td>
+              <td data-label="Description">Declares a structure template</td>
+            </tr>
+
+            <tr>
+              <td data-label="Keyword"><code>struct Student s1;</code></td>
+              <td data-label="Description">Creates a structure variable</td>
+            </tr>
+
+            <tr>
+              <td data-label="Keyword"><code>s1.member</code></td>
+              <td data-label="Description">Accesses structure members</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="../c.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Back to Syllabus
+      </a>
+
+      <a href="9.2.html" class="next-btn">
+        Next: Accessing Members <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

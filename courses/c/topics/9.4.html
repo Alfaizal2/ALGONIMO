@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nested Structures – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>9.4 Nested Structures</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open-reader"></i> What are Nested Structures?</h2>
+      <p>
+        A <strong>nested structure</strong> is a structure placed <em>inside another structure</em>.
+        This helps organize complex data such as:
+      </p>
+
+      <ul>
+        <li>Students with Date of Birth</li>
+        <li>Employees with Address</li>
+        <li>Orders with Product details</li>
+      </ul>
+
+      <p>
+        Nested structures allow hierarchical grouping of relevant data.
+      </p>
+    </section>
+
+    <!-- ✅ Syntax -->
+    <section>
+      <h2><i class="fas fa-code"></i> Syntax</h2>
+
+<pre><code>struct Inner {
+    data_type member1;
+    ...
+};
+
+struct Outer {
+    struct Inner innerMember;   // Nested structure
+    data_type otherMember;
+};
+</code></pre>
+
+    </section>
+
+    <!-- ✅ Example With Compiler -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example: Student with Date of Birth</h2>
+
+      <div class="code-section">
+        <h2><i class="fas fa-terminal"></i> Sample Code (Run it!)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+#include <string.h>
+
+struct Date {
+    int day;
+    int month;
+    int year;
+};
+
+struct Student {
+    char name[30];
+    int roll;
+    struct Date dob;   // Nested structure
+};
+
+int main() {
+    struct Student s1;
+
+    strcpy(s1.name, "John");
+    s1.roll = 101;
+    s1.dob.day = 15;
+    s1.dob.month = 8;
+    s1.dob.year = 2000;
+
+    printf("Name: %s\n", s1.name);
+    printf("Roll: %d\n", s1.roll);
+    printf("DOB: %02d-%02d-%d\n", s1.dob.day, s1.dob.month, s1.dob.year);
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+
+<pre><code>Name: John
+Roll: 101
+DOB: 15-08-2000
+</code></pre>
+
+    </section>
+
+    <!-- ✅ Tip -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Tip</h2>
+      <p>
+        Nested structures are ideal when one record logically contains another record.  
+        Example: A <strong>Student</strong> has a <strong>Date</strong> of birth.
+      </p>
+    </section>
+
+    <!-- ✅ Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Quick Summary</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Concept"><code>struct A inside struct B</code></td>
+              <td data-label="Description">Represents nested structure</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept"><code>outer.inner.member</code></td>
+              <td data-label="Description">Access nested structure member</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept"><code>s.dob.day = 15;</code></td>
+              <td data-label="Description">Assign value to nested member</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="9.3.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Array of Structures
+      </a>
+
+      <a href="9.5.html" class="next-btn">
+        Next: Introduction to Unions <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

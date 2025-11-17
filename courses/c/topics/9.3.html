@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Array of Structures – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>9.3 Array of Structures</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open-reader"></i> What is an Array of Structures?</h2>
+      <p>
+        An <strong>array of structures</strong> stores multiple structure variables under one name.
+        It is extremely useful for managing lists such as:
+      </p>
+
+      <ul>
+        <li>Students</li>
+        <li>Employees</li>
+        <li>Products</li>
+        <li>Records of any kind</li>
+      </ul>
+
+      <p>
+        Each element of the array is a full structure with its own members.
+      </p>
+    </section>
+
+    <!-- ✅ Syntax -->
+    <section>
+      <h2><i class="fas fa-code"></i> Syntax</h2>
+
+<pre><code>struct StructureName {
+    data_type member1;
+    data_type member2;
+    ...
+};
+
+struct StructureName arrayName[size];
+</code></pre>
+
+    </section>
+
+    <!-- ✅ Example With Compiler -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example: Array of Students</h2>
+
+      <div class="code-section">
+        <h2><i class="fas fa-terminal"></i> Sample Code (Run it!)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    int id;
+    char name[30];
+    float marks;
+};
+
+int main() {
+    struct Student students[3];
+
+    // Assigning values
+    students[0].id = 1;
+    strcpy(students[0].name, "Alice");
+    students[0].marks = 85.5;
+
+    students[1].id = 2;
+    strcpy(students[1].name, "Bob");
+    students[1].marks = 90.0;
+
+    students[2].id = 3;
+    strcpy(students[2].name, "Charlie");
+    students[2].marks = 78.2;
+
+    // Display
+    for (int i = 0; i < 3; i++) {
+        printf("ID: %d, Name: %s, Marks: %.1f\n",
+            students[i].id, students[i].name, students[i].marks);
+    }
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+<pre><code>ID: 1, Name: Alice, Marks: 85.5
+ID: 2, Name: Bob, Marks: 90.0
+ID: 3, Name: Charlie, Marks: 78.2</code></pre>
+
+    </section>
+
+    <!-- ✅ Tip -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Tip</h2>
+      <p>
+        Loops make it easy to process large structure arrays — ideal for managing records efficiently.
+      </p>
+    </section>
+
+    <!-- ✅ Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Quick Summary</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Concept"><code>struct S arr[n];</code></td>
+              <td data-label="Description">Creates an array of <code>n</code> structures</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept"><code>arr[i].member</code></td>
+              <td data-label="Description">Accesses a member of the  i-th structure</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept"><code>strcpy(arr[i].name, "text");</code></td>
+              <td data-label="Description">Assigns string to structure member</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="9.2.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Accessing Members
+      </a>
+
+      <a href="9.4.html" class="next-btn">
+        Next: Nested Structures <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

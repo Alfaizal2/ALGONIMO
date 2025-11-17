@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Accessing Structure Members – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>9.2 Accessing Members</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Accessing Structure Members</h2>
+      <p>
+        Once a structure is defined and a variable is created, you can access its members using the 
+        <strong>dot operator (.)</strong>.  
+        This operator allows you to assign and read values inside a structure variable.
+      </p>
+    </section>
+
+    <!-- ✅ Syntax -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Syntax</h2>
+
+<pre><code>struct StructureName var;
+var.member1 = value;
+var.member2 = value;</code></pre>
+
+      <p>
+        The <strong>dot operator</strong> connects the structure variable with its members.
+      </p>
+    </section>
+
+    <!-- ✅ Example With Compiler -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example: Accessing Student Structure Members</h2>
+
+      <div class="code-section">
+        <h2><i class="fas fa-terminal"></i> Sample Code (Run it!)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+#include <string.h>
+
+struct Student {
+    int id;
+    char name[50];
+    float marks;
+};
+
+int main() {
+    struct Student s1;
+
+    s1.id = 202;
+    strcpy(s1.name, "Alice");
+    s1.marks = 92.0;
+
+    printf("Student ID: %d\n", s1.id);
+    printf("Name: %s\n", s1.name);
+    printf("Marks: %.2f\n", s1.marks);
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+<pre><code>Student ID: 202
+Name: Alice
+Marks: 92.00</code></pre>
+
+    </section>
+
+    <!-- ✅ Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Quick Summary</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Expression</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Expression"><code>var.member</code></td>
+              <td data-label="Description">Accesses the value of a structure member</td>
+            </tr>
+
+            <tr>
+              <td data-label="Expression"><code>var.member = value;</code></td>
+              <td data-label="Description">Assigns a value to the member</td>
+            </tr>
+
+            <tr>
+              <td data-label="Expression"><code>strcpy(var.name, "text");</code></td>
+              <td data-label="Description">Assigns a string to a character array inside the structure</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="9.1.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Defining Structures
+      </a>
+
+      <a href="9.3.html" class="next-btn">
+        Next: Array of Structures <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

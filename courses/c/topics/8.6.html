@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pointers and Strings – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>8.6 Pointers and Strings</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Understanding Pointers and Strings</h2>
+      <p>
+        In C, strings are stored as character arrays terminated by a null character
+        <code>'\0'</code>. Pointers allow efficient string traversal, modification, and
+        function argument handling.
+      </p>
+
+      <ul>
+        <li>Strings = Array of characters</li>
+        <li>Pointers can traverse characters one by one</li>
+        <li>Useful for dynamic string operations</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Example 1 With Compiler -->
+    <section>
+      <h2><i class="fas fa-code"></i> Using Pointers to Access Strings</h2>
+
+      <div class="code-section">
+        <h2><i class="fas fa-terminal"></i> Sample Code (Run it!)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    char *str = "Algonimo";
+
+    while (*str != '\0') {
+        printf("%c ", *str);
+        str++;
+    }
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+      <pre><code>A l g o n i m o</code></pre>
+    </section>
+
+    <!-- ✅ How It Works -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> How It Works</h2>
+      <ul>
+        <li><code>str</code> holds the address of the first character</li>
+        <li><code>*str</code> gives the current character</li>
+        <li><code>str++</code> moves the pointer to the next character in memory</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Example 2 With Compiler -->
+    <section>
+      <h2><i class="fas fa-right-left"></i> Pointer Strings vs Array Strings</h2>
+      <p>Pointers offer flexibility, while arrays offer modifiability.</p>
+
+      <div class="code-section">
+        <h2><i class="fas fa-terminal"></i> Sample Code (Run it!)</h2>
+
+<textarea id="cCode2" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    char str1[] = "Hello";      // Stored in array (modifiable)
+    char *str2 = "World";       // Pointer to string literal (read-only)
+
+    printf("str1 = %s\n", str1);
+    printf("str2 = %s\n", str2);
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput2" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode2()">▶ Run Code</button>
+
+        <div id="output2" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+      <pre><code>str1 = Hello
+str2 = World</code></pre>
+    </section>
+
+    <!-- ✅ Neon Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Form</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Form"><code>char *ptr = "Text";</code></td>
+              <td data-label="Description">Pointer to string literal (stored in read-only memory)</td>
+            </tr>
+
+            <tr>
+              <td data-label="Form"><code>char arr[] = "Text";</code></td>
+              <td data-label="Description">Character array storing a modifiable copy of the string</td>
+            </tr>
+
+            <tr>
+              <td data-label="Form"><code>*ptr</code></td>
+              <td data-label="Description">Accesses current character the pointer refers to</td>
+            </tr>
+
+            <tr>
+              <td data-label="Form"><code>ptr++</code></td>
+              <td data-label="Description">Moves pointer to next character in memory</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="8.5.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: NULL & void Pointers
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

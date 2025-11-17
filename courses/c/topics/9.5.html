@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to Unions – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>9.5 Introduction to Unions</h1>
+
+    <!-- ✅ What is a Union -->
+    <section>
+      <h2><i class="fas fa-book-open-reader"></i> What is a Union?</h2>
+      <p>
+        A <strong>union</strong> is a special user-defined data type in C that allows
+        <strong>multiple members to share the same memory location</strong>.
+      </p>
+
+      <p>
+        🔹 Only <strong>one member</strong> can hold a valid value at a time.  
+        🔹 Useful for <strong>efficient memory usage</strong>.
+      </p>
+    </section>
+
+    <!-- ✅ Syntax -->
+    <section>
+      <h2><i class="fas fa-code"></i> Union Syntax</h2>
+
+<pre><code>union UnionName {
+    data_type member1;
+    data_type member2;
+    ...
+};
+</code></pre>
+
+    </section>
+
+    <!-- ✅ Example (With Compiler) -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example: Union with int and float</h2>
+
+      <div class="code-section">
+        <h2><i class="fas fa-terminal"></i> Sample Code (Run it!)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+union Data {
+    int i;
+    float f;
+};
+
+int main() {
+    union Data d;
+
+    d.i = 10;
+    printf("d.i = %d\n", d.i);
+
+    d.f = 3.14;
+    printf("d.f = %.2f\n", d.f);
+
+    // After assigning float, the int value becomes corrupted
+    printf("d.i (after assigning float) = %d\n", d.i);
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+
+<pre><code>d.i = 10
+d.f = 3.14
+d.i (after assigning float) = (corrupted value)
+</code></pre>
+
+    </section>
+
+    <!-- ✅ Important Note -->
+    <section>
+      <h2><i class="fas fa-triangle-exclamation"></i> Important Note</h2>
+      <p>
+        Since all members share the <strong>same memory space</strong>, writing to one member
+        <strong>overwrites</strong> the others.
+      </p>
+    </section>
+
+    <!-- ✅ Memory Comparison -->
+    <section>
+      <h2><i class="fas fa-ruler-horizontal"></i> Memory Usage</h2>
+
+      <ul>
+        <li><strong>Structure:</strong> Allocates memory for every member.</li>
+        <li><strong>Union:</strong> Allocates memory equal to the size of the <strong>largest member</strong>.</li>
+      </ul>
+
+    </section>
+
+    <!-- ✅ Neon Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Quick Summary</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Union</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Concept">Multiple Members</td>
+              <td data-label="Union">Only one valid at a time</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept">Memory Size</td>
+              <td data-label="Union">Size of the largest member</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept">Use Case</td>
+              <td data-label="Union">Efficient memory storage</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="9.4.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Nested Structures
+      </a>
+
+      <a href="9.6.html" class="next-btn">
+        Next: Structures vs Unions <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

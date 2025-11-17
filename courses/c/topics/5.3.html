@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Loops in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navbar -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Content -->
+  <main class="topic-page">
+
+    <h1><i class="fas fa-repeat"></i> 5.3 Loops in C</h1>
+
+    <section>
+      <h2><i class="fas fa-question-circle"></i> Introduction</h2>
+      <p>
+        Loops are used to execute a block of code multiple times. 
+        C provides three primary loop constructs to handle repeated tasks efficiently:
+      </p>
+    </section>
+
+    <!-- ✅ Neon Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Types of Loops in C</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Loop Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Loop Type"><code>while</code></td>
+              <td data-label="Description">Checks condition first, then executes the loop body.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Loop Type"><code>do-while</code></td>
+              <td data-label="Description">Executes loop body once, then checks condition.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Loop Type"><code>for</code></td>
+              <td data-label="Description">Ideal for loops with initialization, condition, and increment.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ WHILE LOOP -->
+    <section>
+      <h2><i class="fas fa-arrow-down-short-wide"></i> while Loop</h2>
+      <p>The <strong>while loop</strong> checks the condition before executing the loop body.</p>
+      <pre><code>int i = 1;
+while (i <= 5) {
+    printf("%d\n", i);
+    i++;
+}</code></pre>
+
+      <div class="output">
+        <strong><i class="fas fa-terminal"></i> Output:</strong><br>
+        1<br>2<br>3<br>4<br>5
+      </div>
+    </section>
+
+    <!-- ✅ DO-WHILE LOOP -->
+    <section>
+      <h2><i class="fas fa-arrow-rotate-left"></i> do-while Loop</h2>
+      <p>The <strong>do-while loop</strong> executes the loop body first, then checks the condition.</p>
+      <pre><code>int i = 1;
+do {
+    printf("%d\n", i);
+    i++;
+} while (i <= 5);</code></pre>
+
+      <div class="output">
+        <strong><i class="fas fa-terminal"></i> Output:</strong><br>
+        1<br>2<br>3<br>4<br>5
+      </div>
+    </section>
+
+    <!-- ✅ FOR LOOP -->
+    <section>
+      <h2><i class="fas fa-repeat"></i> for Loop</h2>
+      <p>The <strong>for loop</strong> is best suited for situations with a known number of iterations.</p>
+      <pre><code>for (int i = 1; i <= 5; i++) {
+    printf("%d\n", i);
+}</code></pre>
+
+      <div class="output">
+        <strong><i class="fas fa-terminal"></i> Output:</strong><br>
+        1<br>2<br>3<br>4<br>5
+      </div>
+    </section>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Summary</h2>
+      <ul>
+        <li><strong>while</strong> → checks condition first</li>
+        <li><strong>do-while</strong> → runs at least once</li>
+        <li><strong>for</strong> → perfect for counter-controlled loops</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Interactive Compiler -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try it Yourself (Run the Code!)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        printf("%d\n", i);
+    }
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label for="userInput"><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="5.2.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: switch Statement
+      </a>
+
+      <a href="5.4.html" class="next-btn">
+        Next: Nested Loops in C <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

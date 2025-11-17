@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>NULL and void Pointers – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>8.5 NULL and void Pointers</h1>
+
+    <!-- ✅ Explanation: NULL Pointer -->
+    <section>
+      <h2><i class="fas fa-ban"></i> NULL Pointer</h2>
+      <p>
+        A <strong>NULL pointer</strong> is a pointer that does not point to any valid memory location.
+        It is commonly used to show that the pointer is empty, uninitialized, or intentionally pointing nowhere.
+      </p>
+
+      <div class="code-section">
+        <h2><i class="fas fa-code"></i> Sample Code (Run it!)</h2>
+
+        <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    int *ptr = NULL;
+
+    if (ptr == NULL)
+        printf("Pointer is NULL");
+
+    return 0;
+}
+        </textarea>
+
+        <div class="input-section">
+          <label for="userInput"><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+      <pre><code>Pointer is NULL</code></pre>
+
+      <p>
+        <strong>Note:</strong> <code>NULL</code> is defined in <code>&lt;stddef.h&gt;</code> and <code>&lt;stdio.h&gt;</code>.
+      </p>
+    </section>
+
+
+    <!-- ✅ Explanation: void Pointer -->
+    <section>
+      <h2><i class="fas fa-code"></i> void Pointer</h2>
+      <p>
+        A <strong>void pointer</strong> (also called a generic pointer) can store the address of any data type.
+        However, it must be <strong>typecasted</strong> before dereferencing.
+      </p>
+
+      <div class="code-section">
+        <h2><i class="fas fa-code"></i> Sample Code (Run it!)</h2>
+
+        <textarea id="cCode2" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    int x = 42;
+    void *ptr;
+
+    ptr = &x;
+
+    printf("Value = %d\n", *(int *)ptr); // Typecast required
+
+    return 0;
+}
+        </textarea>
+
+        <div class="input-section">
+          <label for="userInput2"><strong>Input (stdin):</strong></label>
+          <textarea id="userInput2" placeholder="Type input if needed..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode2()">▶ Run Code</button>
+
+        <div id="output2" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+
+      <p><strong>Expected Output:</strong></p>
+      <pre><code>Value = 42</code></pre>
+    </section>
+
+
+    <!-- ✅ Neon Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Pointer Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Pointer Type"><code>NULL Pointer</code></td>
+              <td data-label="Description">Points to nothing; used for uninitialized or empty pointers.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Pointer Type"><code>void Pointer</code></td>
+              <td data-label="Description">Generic pointer that can point to any datatype, but needs typecasting.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="8.4.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Pointers with Functions
+      </a>
+
+      <a href="8.6.html" class="next-btn">
+        Next: Pointers and Strings <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

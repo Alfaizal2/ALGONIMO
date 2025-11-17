@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pointers with Functions – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Page Content -->
+  <main class="topic-page">
+
+    <h1>8.4 Pointers with Functions</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Why Use Pointers with Functions?</h2>
+      <p>
+        In C, function arguments are always passed by value.  
+        But sometimes we need a function to modify the original variables passed to it.
+      </p>
+      <p>
+        Using <strong>pointers</strong> lets us achieve <strong>call by reference</strong> behavior, 
+        meaning the function can directly access and update the original variables.
+      </p>
+    </section>
+
+    <!-- ✅ Example Program -->
+    <section>
+      <h2><i class="fas fa-right-left"></i> Example: Swapping Two Numbers</h2>
+
+      <pre><code>#include &lt;stdio.h&gt;
+
+void swap(int *x, int *y) {
+    int temp = *x;  
+    *x = *y;        
+    *y = temp;      
+}
+
+int main() {
+    int a = 5, b = 10;
+
+    printf("Before Swap: a = %d, b = %d\n", a, b);
+    swap(&a, &b);  
+    printf("After Swap: a = %d, b = %d\n", a, b);
+
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        Before Swap: a = 5, b = 10<br>
+        After Swap: a = 10, b = 5
+      </div>
+    </section>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> How It Works</h2>
+      <ul>
+        <li><code>swap(&a, &b)</code> passes <strong>addresses</strong> of variables</li>
+        <li><code>*x</code> and <code>*y</code> access the actual values stored at those addresses</li>
+        <li>Changes inside <code>swap()</code> update <code>a</code> and <code>b</code> directly</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Neon Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Concept"><code>*ptr</code></td>
+              <td data-label="Description">Accesses the value stored at a memory address</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept"><code>&var</code></td>
+              <td data-label="Description">Gets the address of a variable</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept">Call by Reference</td>
+              <td data-label="Description">Allows modifying original variables inside a function</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Compiler Section -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try it Yourself (Run the Code!)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+void swap(int *x, int *y) {
+    int temp = *x;
+    *x = *y;
+    *y = temp;
+}
+
+int main() {
+    int a = 5, b = 10;
+
+    printf("Before Swap: a = %d, b = %d\n", a, b);
+    swap(&a, &b);
+    printf("After Swap: a = %d, b = %d\n", a, b);
+
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label for="userInput"><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type input if needed..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="8.3.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Pointers with Arrays
+      </a>
+
+      <a href="8.5.html" class="next-btn">
+        Next: NULL & void Pointers <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

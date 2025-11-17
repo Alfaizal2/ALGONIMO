@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>String Functions in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo"><a href="../c.html" style="color:inherit;">ALGONIMO</a></div>
+  </nav>
+
+  <!-- ✅ Topic Content -->
+  <main class="topic-page">
+
+    <h1>7.4 String Functions in C</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Introduction</h2>
+      <p>
+        The C standard library <code>&lt;string.h&gt;</code> provides a variety of 
+        functions to process and manipulate strings.  
+        Here are three of the most commonly used string functions.
+      </p>
+    </section>
+
+    <!-- ✅ strlen() -->
+    <section>
+      <h2><i class="fas fa-ruler-horizontal"></i> strlen()</h2>
+      <p>
+        The <code>strlen()</code> function returns the <strong>length</strong> of a string  
+        (excluding the null character <code>'\0'</code>).
+      </p>
+
+      <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char str[] = "Algonimo";
+    printf("Length = %lu", strlen(str));
+    return 0;
+}</code></pre>
+
+      <div class="output">Length = 8</div>
+    </section>
+
+    <!-- ✅ strcpy() -->
+    <section>
+      <h2><i class="fas fa-copy"></i> strcpy()</h2>
+      <p>
+        The <code>strcpy()</code> function copies a string from source to destination.
+      </p>
+
+      <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char src[] = "C Programming";
+    char dest[50];
+
+    strcpy(dest, src);
+
+    printf("Copied String = %s", dest);
+    return 0;
+}</code></pre>
+
+      <div class="output">Copied String = C Programming</div>
+    </section>
+
+    <!-- ✅ strcmp() -->
+    <section>
+      <h2><i class="fas fa-arrows-left-right"></i> strcmp()</h2>
+      <p>
+        The <code>strcmp()</code> function compares two strings.  
+        Return values:
+      </p>
+      <ul>
+        <li><code>0</code> → Strings are equal</li>
+        <li><code>&lt; 0</code> → First string is smaller</li>
+        <li><code>&gt; 0</code> → First string is greater</li>
+      </ul>
+
+      <pre><code>#include &lt;stdio.h&gt;
+#include &lt;string.h&gt;
+
+int main() {
+    char a[] = "Apple";
+    char b[] = "Banana";
+
+    int result = strcmp(a, b);
+
+    if (result == 0)
+        printf("Strings are equal");
+    else if (result &lt; 0)
+        printf("a is less than b");
+    else
+        printf("a is greater than b");
+
+    return 0;
+}</code></pre>
+
+      <div class="output">a is less than b</div>
+    </section>
+
+    <!-- ✅ Neon Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Function</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Function"><code>strlen()</code></td>
+              <td data-label="Description">Returns number of characters in a string</td>
+            </tr>
+
+            <tr>
+              <td data-label="Function"><code>strcpy()</code></td>
+              <td data-label="Description">Copies one string into another</td>
+            </tr>
+
+            <tr>
+              <td data-label="Function"><code>strcmp()</code></td>
+              <td data-label="Description">Compares two strings lexicographically</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Try it Yourself -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try it Yourself (Run the Code!)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char word1[20] = "Hello";
+    char word2[20] = "World";
+
+    printf("Length of word1: %lu\n", strlen(word1));
+    strcpy(word2, word1);
+    printf("After copy, word2: %s\n", word2);
+
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="7.3.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Introduction to Strings
+      </a>
+
+      <a href="7.5.html" class="next-btn">
+        Next: Character Arrays vs String Library <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

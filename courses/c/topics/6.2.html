@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Return Values in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Page Content -->
+  <main class="topic-page">
+
+    <h1>6.2 Return Values</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Introduction</h2>
+      <p>
+        In C, a function can return a value to the function that called it.  
+        This is useful when the function performs a calculation or needs to provide data back to the program.
+      </p>
+      <p>
+        Every function in C has a return type, which defines the type of value it gives back.
+      </p>
+    </section>
+
+    <!-- ✅ Syntax -->
+    <section>
+      <h2><i class="fas fa-code"></i> Syntax</h2>
+      <pre><code>return_type function_name(parameters) {
+    // statements
+    return value;
+}</code></pre>
+    </section>
+
+    <!-- ✅ Example -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example</h2>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int add(int a, int b);   // Function declaration
+
+int main() {
+    int result = add(5, 3);  // Function call
+    printf("Result: %d\n", result);
+    return 0;
+}
+
+// Function definition
+int add(int a, int b) {
+    return a + b;  // Returning sum
+}</code></pre>
+    </section>
+
+    <!-- ✅ Output -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Output</h2>
+      <div class="output">
+        Result: 8
+      </div>
+    </section>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-brain"></i> Explanation</h2>
+      <ul>
+        <li><strong>int add(int a, int b)</strong> → Function returns an <code>int</code> value.</li>
+        <li><strong>return a + b</strong> → Sends the value back to <code>main()</code>.</li>
+        <li><strong>int result = add(5, 3)</strong> → Stores returned value.</li>
+        <li>Return values allow functions to provide results to the caller.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Neon Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Common Return Types</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Return Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Return Type">int</td>
+              <td data-label="Description">Returns integer values</td>
+            </tr>
+
+            <tr>
+              <td data-label="Return Type">float</td>
+              <td data-label="Description">Returns decimal values</td>
+            </tr>
+
+            <tr>
+              <td data-label="Return Type">char</td>
+              <td data-label="Description">Returns a single character</td>
+            </tr>
+
+            <tr>
+              <td data-label="Return Type">void</td>
+              <td data-label="Description">Returns nothing</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Interactive Compiler -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try it Yourself (Run the Code!)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int r = add(10, 20);
+    printf("Sum = %d\n", r);
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label for="userInput"><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="6.1.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Function Declaration & Definition
+      </a>
+
+      <a href="6.3.html" class="next-btn">
+        Next: Parameters (Call by Value) <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

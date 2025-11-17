@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Binary File Operations – C File Handling – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>10.5 Binary File Operations</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open-reader"></i> What is a Binary File?</h2>
+      <p>
+        Binary files store data in raw binary form (0s and 1s).  
+        They are faster, more compact, and ideal for storing:
+      </p>
+
+      <ul>
+        <li>Images</li>
+        <li>Audio files</li>
+        <li>Executable code</li>
+        <li>Structures and complex data</li>
+      </ul>
+
+      <p>
+        Unlike text files, binary files preserve the exact memory representation of data.
+      </p>
+    </section>
+
+    <!-- ✅ Functions Used -->
+    <section>
+      <h2><i class="fas fa-gear"></i> Functions Used in Binary File Handling</h2>
+
+      <ul>
+        <li><code>fopen()</code> – open binary file (<code>"rb"</code>, <code>"wb"</code>, <code>"ab"</code>)</li>
+        <li><code>fread()</code> – read binary data</li>
+        <li><code>fwrite()</code> – write binary data</li>
+        <li><code>fclose()</code> – close file</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Example -->
+    <section>
+      <h2><i class="fas fa-flask"></i> Example: Writing & Reading a Binary File</h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+struct Student {
+    char name[50];
+    int age;
+};
+
+int main() {
+    struct Student s1 = {"John", 20};
+
+    // Write to binary file
+    FILE *fptr = fopen("student.dat", "wb");
+    fwrite(&s1, sizeof(s1), 1, fptr);
+    fclose(fptr);
+
+    // Read from binary file
+    struct Student s2;
+    fptr = fopen("student.dat", "rb");
+    fread(&s2, sizeof(s2), 1, fptr);
+    fclose(fptr);
+
+    printf("Name: %s\nAge: %d\n", s2.name, s2.age);
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        Name: John<br>
+        Age: 20
+      </div>
+
+      <p><strong>Note:</strong> Always check if the file opened successfully before using <code>fread()</code> or <code>fwrite()</code>.</p>
+    </section>
+
+    <!-- ✅ Binary Modes Table -->
+    <section>
+      <h2><i class="fas fa-folder-open"></i> Binary File Modes</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Mode</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Mode"><code>"rb"</code></td>
+              <td data-label="Description">Open binary file for reading.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"wb"</code></td>
+              <td data-label="Description">Open for writing (overwrites existing file).</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"ab"</code></td>
+              <td data-label="Description">Open for appending in binary mode.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"rb+"</code></td>
+              <td data-label="Description">Open for reading and writing.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"wb+"</code></td>
+              <td data-label="Description">Read + write (overwrites existing file).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Summary -->
+    <section>
+      <h2><i class="fas fa-thumbtack"></i> Summary</h2>
+      <ul>
+        <li>Binary files store raw data, making them more efficient.</li>
+        <li>Use <code>fread()</code> and <code>fwrite()</code> for binary operations.</li>
+        <li>Useful for structures, multimedia files, and performance-critical programs.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="10.4.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Modes of File Opening
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

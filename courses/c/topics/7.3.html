@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Introduction to Strings – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo"><a href="../c.html" style="color:inherit;">ALGONIMO</a></div>
+  </nav>
+
+  <!-- ✅ Page Content -->
+  <main class="topic-page">
+
+    <h1>7.3 Introduction to Strings in C</h1>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> What is a String?</h2>
+      <p>
+        A <strong>string</strong> in C is a sequence of characters stored in a 
+        <strong>character array</strong> and terminated with a special character:
+        <code>'\0'</code> (null character).
+      </p>
+
+      <p>
+        Since C does not have a built-in string type, strings are handled using character arrays
+        and library functions from <code>&lt;string.h&gt;</code>.
+      </p>
+    </section>
+
+    <!-- ✅ Declaration -->
+    <section>
+      <h2><i class="fas fa-code"></i> Declaring Strings</h2>
+      <pre><code>char str1[20];            // Empty character array
+char str2[20] = "Hello";  // Initialized string
+char str3[]  = "World";   // Size decided automatically</code></pre>
+    </section>
+
+    <!-- ✅ Example: Basic Input -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example: Reading a String</h2>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char name[30];
+
+    printf("Enter your name: ");
+    scanf("%s", name); // reads until space
+
+    printf("Hello, %s!", name);
+    return 0;
+}</code></pre>
+    </section>
+
+    <!-- ✅ Output -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Output</h2>
+      <div class="output">
+        Enter your name: Alice <br>
+        Hello, Alice!
+      </div>
+    </section>
+
+    <!-- ✅ Multi-word Input -->
+    <section>
+      <h2><i class="fas fa-keyboard"></i> Reading Multi-word Strings</h2>
+      <p>
+        <code>scanf("%s")</code> stops input when it finds a space.  
+        To read full sentences, use <strong>fgets()</strong>:
+      </p>
+
+      <pre><code>fgets(name, sizeof(name), stdin);</code></pre>
+    </section>
+
+    <!-- ✅ Example: fgets -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example: Reading Full Name with fgets()</h2>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char fullName[50];
+
+    printf("Enter full name: ");
+    fgets(fullName, sizeof(fullName), stdin);
+
+    printf("You entered: %s", fullName);
+
+    return 0;
+}</code></pre>
+    </section>
+
+    <!-- ✅ Summary Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Aspect</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Aspect">Type</td>
+              <td data-label="Details">Character array</td>
+            </tr>
+
+            <tr>
+              <td data-label="Aspect">Ends With</td>
+              <td data-label="Details"><code>'\0'</code> null terminator</td>
+            </tr>
+
+            <tr>
+              <td data-label="Aspect">Library</td>
+              <td data-label="Details"><code>&lt;string.h&gt;</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Aspect">Multi-Word Input</td>
+              <td data-label="Details"><code>fgets()</code> recommended</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Interactive Compiler -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try it Yourself (Run the Code!)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    char city[30];
+    printf("Enter your city name: ");
+    fgets(city, sizeof(city), stdin);
+
+    printf("You live in: %s", city);
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="7.2.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Array Operations
+      </a>
+
+      <a href="7.4.html" class="next-btn">
+        Next: String Functions <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

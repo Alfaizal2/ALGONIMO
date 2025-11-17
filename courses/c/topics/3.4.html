@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Input and Output in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Top Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Topic Content -->
+  <main class="topic-page">
+
+    <h1>3.4 Input and Output in C</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-database"></i> Introduction</h2>
+      <p>
+        In C programming, input and output operations allow your program to interact with the user.
+        These operations are performed using standard library functions <code>printf()</code> and <code>scanf()</code>, both included in the 
+        <code>&lt;stdio.h&gt;</code> header file.
+      </p>
+    </section>
+
+    <!-- ✅ printf() -->
+    <section>
+      <h2><i class="fas fa-print"></i> printf() Function</h2>
+      <p>
+        The <code>printf()</code> function is used to display text or values on the screen.  
+        It supports format specifiers to display variables properly.
+      </p>
+
+      <pre><code>printf("Welcome to ALGONIMO!");</code></pre>
+
+      <p><strong>Example with variables:</strong></p>
+
+      <pre><code>int age = 20;
+printf("Age: %d", age);</code></pre>
+    </section>
+
+    <!-- ✅ scanf() -->
+    <section>
+      <h2><i class="fas fa-keyboard"></i> scanf() Function</h2>
+      <p>
+        The <code>scanf()</code> function reads input from the user.  
+        It stores the value inside a variable using its memory address (<code>&amp;</code> operator).
+      </p>
+
+      <pre><code>int age;
+scanf("%d", &age);</code></pre>
+      
+      <p><strong>Important:</strong> Never forget the <code>&amp;</code> symbol when reading numbers.</p>
+    </section>
+
+    <!-- ✅ Format Specifiers Table -->
+    <section>
+      <h2><i class="fas fa-chart-bar"></i> Common Format Specifiers</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Specifier</th>
+              <th>Meaning</th>
+              <th>Example</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Specifier"><code>%d</code></td>
+              <td data-label="Meaning">Integer</td>
+              <td data-label="Example"><code>scanf("%d", &num);</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Specifier"><code>%f</code></td>
+              <td data-label="Meaning">Floating-point number</td>
+              <td data-label="Example"><code>scanf("%f", &price);</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Specifier"><code>%c</code></td>
+              <td data-label="Meaning">Single character</td>
+              <td data-label="Example"><code>scanf("%c", &grade);</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Specifier"><code>%s</code></td>
+              <td data-label="Meaning">String (word)</td>
+              <td data-label="Example"><code>scanf("%s", name);</code></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Example Program -->
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Example Program</h2>
+
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age;
+    char name[20];
+
+    printf("Enter your name: ");
+    scanf("%s", name);
+
+    printf("Enter your age: ");
+    scanf("%d", &age);
+
+    printf("Hello %s, you are %d years old.", name, age);
+    return 0;
+}
+</code></pre>
+    </section>
+
+    <!-- ✅ Interactive Compiler -->
+    <section class="code-section">
+      <h2><i class="fas fa-code"></i> Try It Yourself (Online Compiler)</h2>
+
+      <textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    char name[20];
+    int age;
+
+    printf("Enter name: ");
+    scanf("%s", name);
+
+    printf("Enter age: ");
+    scanf("%d", &age);
+
+    printf("Hello %s! You are %d years old.\n", name, age);
+
+    return 0;
+}
+      </textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Type your input here..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="3.3.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Data Types in C
+      </a>
+
+      <a href="3.5.html" class="next-btn">
+        Next: Comments in C <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+<script src="../../../assets/js/topic.js"></script>
+</body>
+</html>

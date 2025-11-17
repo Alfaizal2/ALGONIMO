@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Modes of File Opening – C File Handling – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>10.4 Modes of File Opening</h1>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Explanation</h2>
+      <p>
+        When opening a file using <code>fopen()</code>, you must specify a <strong>file mode</strong>.
+        This tells the compiler how you want to access the file:
+        <strong>read, write, modify, or append</strong>.
+      </p>
+    </section>
+
+    <!-- ✅ File Modes Table -->
+    <section>
+      <h2><i class="fas fa-list-ul"></i> File Modes in C</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Mode</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Mode"><code>"r"</code></td>
+              <td data-label="Description">Open for reading. File must already exist.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"w"</code></td>
+              <td data-label="Description">Open for writing. Creates a new file or overwrites an existing one.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"a"</code></td>
+              <td data-label="Description">Open for appending. Creates file if missing.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"r+"</code></td>
+              <td data-label="Description">Open for both reading and writing. File must already exist.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"w+"</code></td>
+              <td data-label="Description">Read + write. Overwrites existing file or creates a new one.</td>
+            </tr>
+
+            <tr>
+              <td data-label="Mode"><code>"a+"</code></td>
+              <td data-label="Description">Read + append. Creates file if missing.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Example -->
+    <section>
+      <h2><i class="fas fa-flask"></i> Example: Using <code>"a"</code> Mode</h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("log.txt", "a");
+
+    if (fp != NULL) {
+        fprintf(fp, "New entry logged.\n");
+        fclose(fp);
+    }
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Note:</strong>  
+        Using <code>"a"</code> mode ensures new content is added at the end, without deleting existing data.
+      </div>
+    </section>
+
+    <!-- ✅ Summary -->
+    <section>
+      <h2><i class="fas fa-thumbtack"></i> Summary</h2>
+
+      <ul>
+        <li>Choose the correct <code>fopen()</code> mode based on reading, writing, or appending.</li>
+        <li>Modes with <code>+</code> allow both reading and writing.</li>
+        <li><strong>Warning:</strong> <code>"w"</code> and <code>"w+"</code> erase existing file content.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="10.3.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: fprintf(), fscanf(), fgets()
+      </a>
+
+      <a href="10.5.html" class="next-btn">
+        Next: Binary File Operations <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>
