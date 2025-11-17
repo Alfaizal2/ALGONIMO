@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>fprintf(), fscanf(), fgets() – C File Handling – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>10.3 fprintf(), fscanf(), fgets()</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Explanation</h2>
+      <p>
+        These three functions are commonly used for formatted reading and writing in files:
+      </p>
+      <ul>
+        <li><strong>fprintf()</strong> – formatted writing (like <code>printf()</code>)</li>
+        <li><strong>fscanf()</strong> – formatted reading (like <code>scanf()</code>)</li>
+        <li><strong>fgets()</strong> – read one full line from a file</li>
+      </ul>
+    </section>
+
+    <!-- ✅ fprintf() -->
+    <section>
+      <h2><i class="fas fa-pen-nib"></i> fprintf()</h2>
+      <p><code>fprintf()</code> is used to write formatted text into a file.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("data.txt", "w");
+
+    if (fp != NULL) {
+        int age = 25;
+        fprintf(fp, "Age: %d\n", age);
+        fclose(fp);
+    }
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        Creates <code>data.txt</code> with:<br>
+        <code>Age: 25</code>
+      </div>
+    </section>
+
+    <!-- ✅ fscanf() -->
+    <section>
+      <h2><i class="fas fa-file-import"></i> fscanf()</h2>
+      <p><code>fscanf()</code> reads formatted data from a file.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    FILE *fp = fopen("data.txt", "r");
+
+    if (fp != NULL) {
+        int age;
+        fscanf(fp, "Age: %d", &age);
+        printf("Read from file: %d\n", age);
+        fclose(fp);
+    }
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong>  
+        Read from file: 25
+      </div>
+    </section>
+
+    <!-- ✅ fgets() -->
+    <section>
+      <h2><i class="fas fa-file-lines"></i> fgets()</h2>
+      <p><code>fgets()</code> reads a full line (string) from a file.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char str[100];
+    FILE *fp = fopen("data.txt", "r");
+
+    if (fp != NULL) {
+        fgets(str, sizeof(str), fp);
+        printf("Line: %s", str);
+        fclose(fp);
+    }
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Output:</strong><br>
+        Line: Age: 25
+      </div>
+    </section>
+
+    <!-- ✅ Compiler Section -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Try It Yourself</h2>
+
+      <div class="code-section">
+        <textarea id="cCode" spellcheck="false">
+// fprintf(), fscanf(), fgets() Example – ALGONIMO
+
+#include <stdio.h>
+
+int main() {
+    FILE *fp = fopen("demo.txt", "w");
+
+    if (fp == NULL) {
+        printf("Unable to open file!\n");
+        return 1;
+    }
+
+    fprintf(fp, "Name: Algonimo\n");
+    fprintf(fp, "Rank: 1\n");
+    fclose(fp);
+
+    fp = fopen("demo.txt", "r");
+
+    if (fp == NULL) {
+        printf("Error reading file!\n");
+        return 1;
+    }
+
+    char buffer[100];
+    fgets(buffer, sizeof(buffer), fp);
+    printf("%s", buffer);
+
+    fgets(buffer, sizeof(buffer), fp);
+    printf("%s", buffer);
+
+    fclose(fp);
+    return 0;
+}
+        </textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Not required for this program..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Summary Table -->
+<section>
+  <h2><i class="fas fa-table-list"></i> Summary Table</h2>
+
+  <div class="alg-table-wrap">
+    <table class="alg-table">
+      <thead>
+        <tr>
+          <th>Function</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td data-label="Function"><code>fprintf()</code></td>
+          <td data-label="Description">Writes formatted output to a file</td>
+        </tr>
+
+        <tr>
+          <td data-label="Function"><code>fscanf()</code></td>
+          <td data-label="Description">Reads formatted data from a file</td>
+        </tr>
+
+        <tr>
+          <td data-label="Function"><code>fgets()</code></td>
+          <td data-label="Description">Reads a complete line (string) from a file</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="10.2.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: File Reading & Writing
+      </a>
+
+      <a href="10.4.html" class="next-btn">
+        Next: Modes of File Opening <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

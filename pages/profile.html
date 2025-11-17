@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Profile – ALGONIMO</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="../assets/page css/profile.css" />
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header>
+    <nav class="navbar container">
+
+      <!-- Logo -->
+      <a href="../pages/main.html" class="logo" aria-label="Algonimo home">
+        <img src="../all imgs/main/logooo.png" class="logo-img" alt="Algonimo Logo" />
+      </a>
+
+      <!-- Controls -->
+      <div class="controls">
+
+        <!-- Logged-in user menu -->
+        <div class="profile-menu" id="profileMenu" style="display:none;" aria-haspopup="true" aria-expanded="false">
+          
+          <!-- Avatar -->
+          <button class="avatar-icon" id="profileImg" role="button" tabindex="0" aria-label="Open profile menu" aria-expanded="false">
+            <img src="../all imgs/main/bot.png" class="avatar-img" alt="User avatar" />
+          </button>
+
+          <!-- Dropdown -->
+          <div class="profile-dropdown" id="profileDropdown" role="menu" aria-hidden="true" style="display:none;">
+            <a href="../pages/settings.html" role="menuitem"><i class="fas fa-cog"></i> Settings</a>
+              </div>
+
+        </div>
+
+        <!-- Guest Controls -->
+        <a id="signupBtn" class="ghost-btn" href="../pages/signup.html">Sign Up</a>
+        <a id="loginBtn" class="ghost-btn" href="../pages/signup.html">Login</a>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ================= PROFILE ================= -->
+  <section class="profile-container">
+
+    <h1 class="page-title">Your Profile</h1>
+
+    <div class="profile-card">
+
+      <!-- Avatar Section -->
+      <div class="avatar-section">
+        <div class="avatar-icon big" id="profileAvatar" role="img" aria-label="Profile avatar">
+          <img src="../all imgs/main/bot.png" class="avatar-img" alt="Profile avatar" />
+        </div>
+      </div>
+
+      <!-- User Info -->
+      <div class="info readonly-info">
+
+        <p><strong>Full Name:</strong> <span id="userName">Loading...</span></p>
+        <p><strong>Email Address:</strong> <span id="userEmail">Loading...</span></p>
+        <p><strong>Account Type:</strong> <span class="badge" id="userType">Standard</span></p>
+
+        <!-- Certificates -->
+        <p><strong>Certificates:</strong> <span id="userCertCount">0</span></p>
+
+        <!-- Join Date -->
+        <p><strong>Joined On:</strong> <span id="joinDate">Loading...</span></p>
+
+        <!-- Last Active -->
+        <p><strong>Last Active:</strong> <span id="lastActive">Loading...</span></p>
+
+        <!-- Security -->
+        <p><strong>Security Status:</strong> <span id="securityStatus" class="secure">Secure</span></p>
+
+      </div>
+
+    </div>
+
+    <!-- ================= BADGES PREVIEW ================= -->
+    <h2 class="sub-title">Your Badges</h2>
+    <div class="badge-preview" id="badgePreview" aria-live="polite"></div>
+
+    <!-- ================= STATS GRID ================= -->
+    <div class="stats-grid">
+
+      <div class="stat-box">
+        <i class="fa-solid fa-book" aria-hidden="true"></i>
+        <strong id="coursesCount">0</strong>
+        <span>Courses Enrolled</span>
+      </div>
+
+
+      <div class="stat-box">
+        <i class="fa-solid fa-certificate" aria-hidden="true"></i>
+        <strong id="certCountGrid">0</strong>
+        <span>Certificates</span>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script type="module" src="../assets/js/auth.js"></script>
+  <script src="../assets/js/profile.js"></script>
+
+  <!-- Dropdown & Logout Fix -->
+  <script>
+    (function () {
+      const menu = document.getElementById("profileMenu");
+      const avatar = document.getElementById("profileImg");
+      const dropdown = document.getElementById("profileDropdown");
+      const logoutBtn = document.getElementById("logoutBtn");
+
+      if (!menu || !avatar || !dropdown) return;
+
+      function setOpenState(isOpen) {
+        if (isOpen) {
+          menu.classList.add("active");
+          menu.setAttribute("aria-expanded", "true");
+          dropdown.setAttribute("aria-hidden", "false");
+          dropdown.style.display = "flex";
+          avatar.setAttribute("aria-expanded", "true");
+        } else {
+          menu.classList.remove("active");
+          menu.setAttribute("aria-expanded", "false");
+          dropdown.setAttribute("aria-hidden", "true");
+          dropdown.style.display = "none";
+          avatar.setAttribute("aria-expanded", "false");
+        }
+      }
+
+      avatar.addEventListener("click", (e) => {
+        e.stopPropagation();
+        setOpenState(!menu.classList.contains("active"));
+      });
+
+      avatar.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" || e.key === " ") {
+          e.preventDefault();
+          setOpenState(!menu.classList.contains("active"));
+        }
+      });
+
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target)) setOpenState(false);
+      });
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") setOpenState(false);
+      });
+
+      if (logoutBtn) {
+        logoutBtn.addEventListener("click", async (ev) => {
+          ev.preventDefault();
+          try {
+            if (window.AlgAuth && typeof AlgAuth.signOutUser === "function") {
+              await AlgAuth.signOutUser("../index.html");
+            } else {
+              localStorage.removeItem("alg_user_data");
+              localStorage.removeItem("alg_user_logged_in");
+              window.location.href = "../index.html";
+            }
+          } catch (err) {
+            localStorage.removeItem("alg_user_data");
+            localStorage.removeItem("alg_user_logged_in");
+            window.location.href = "../index.html";
+          }
+        });
+      }
+
+      setOpenState(false);
+    })();
+  </script>
+
+</body>
+</html>

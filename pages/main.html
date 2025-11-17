@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ✅ SEO -->
+  <title>Algonimo – Learn Programming the Smart & Easy Way</title>
+  <meta name="description"
+    content="Algonimo — Interactive coding lessons, AI mentor, online compiler, and learning tools built for modern programmers." />
+  <meta name="keywords"
+    content="Algonimo, coding, AI teacher, programming tutorials, compiler, HTML, CSS, JavaScript, Python, C, C++, Java" />
+  <meta name="author" content="Algonimo Team" />
+
+  <!-- OpenGraph -->
+  <meta property="og:title" content="Algonimo – Learn Programming the Smart & Easy Way">
+  <meta property="og:description"
+    content="Interactive coding lessons, AI explanations, and online compiler for modern coders.">
+  <meta property="og:image" content="../all imgs/main/logooo.png">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+
+  <!-- Fonts -->
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/page css/main.css" />
+  <link rel="stylesheet" href="../assets/page css/navbar.css" />
+
+  <!-- Icons -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="../all imgs/main/logooo.png" type="image/png" />
+</head>
+
+<body>
+
+  <!-- Background Animation -->
+  <div class="particles"></div>
+
+  <!-- NAVBAR -->
+  <header>
+    <nav class="navbar container" aria-label="Main Navigation">
+
+      <!-- Logo -->
+      <div class="logo">
+        <a href="../index.html" aria-label="Go to Algonimo Home">
+          <img src="../all imgs/main/logooo.png" alt="Algonimo Logo" class="logo-img" />
+          <span>ALGONIMO</span>
+        </a>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+
+        <!-- Profile if logged-in -->
+        <div class="profile-menu" id="profileMenu" style="display:none;">
+          <div class="avatar-icon" id="profileImg" aria-label="User Profile">
+            <i class="fas fa-user"></i>
+          </div>
+
+          <div class="profile-dropdown">
+            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+           <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+          </div>
+        </div>
+
+        <!-- Sign Up if not logged-in -->
+        <a id="signupBtn" class="ghost-btn" href="signup.html">Sign Up</a>
+
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero container reveal" id="hero" aria-labelledby="hero-title">
+    <div class="hero-text">
+      <h1 id="hero-title">
+        🚀 Start Your Coding Journey with
+        <strong>Algonimo</strong>
+      </h1>
+
+      <p>
+        Learn coding the right way — interactive lessons,
+        AI-powered explanations, hands-on compiler,
+        and beautifully crafted study materials.
+      </p>
+
+      <a href="../pages/learn.html" class="hero-btn" aria-label="Start Learning on Algonimo">
+        Start Learning
+      </a>
+    </div>
+
+    <div class="hero-img">
+      <img src="../all imgs/main/first.jpeg" alt="Developers writing code" loading="lazy" />
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features container reveal" aria-label="Core Features">
+    <a href="../pages/learn.html" class="card">
+      <h2><i class="fas fa-chalkboard-teacher"></i> Learn Programming</h2>
+      <p>Master HTML, CSS, JS, Python, C, C++ and more with step-by-step tutorials.</p>
+    </a>
+
+    <a href="../pages/ai.html" class="card">
+      <h2><i class="fas fa-robot"></i> AI Mentor</h2>
+      <p>Instant code explanations & smart learning guidance powered by AI.</p>
+    </a>
+
+    <a href="../pages/compiler.html" class="card">
+      <h2><i class="fas fa-terminal"></i> Online Compiler</h2>
+      <p>Write & run code instantly across multiple languages.</p>
+    </a>
+  </section>
+
+  <!-- LANGUAGES -->
+  <section class="languages container reveal" aria-label="Programming Languages">
+    <h2>📘 Start Learning:</h2>
+    <div class="lang-list">
+      <a href="html/html.html">HTML</a>
+      <a href="css.html">CSS</a>
+      <a href="js.html">JavaScript</a>
+      <a href="python/op.html">Python</a>
+      <a href="java.html">Java</a>
+      <a href="cpp/ocpp.html">C++</a>
+      <a href="../courses/c/syllbus.html">C</a>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about container reveal" id="about">
+    <h2>📖 About Algonimo</h2>
+
+    <p>
+      <strong>Algonimo</strong> is an AI-powered learning ecosystem created to help
+      new coders, students, and professionals learn programming efficiently.
+    </p>
+
+    <p>
+      With a futuristic UI, real-time compiler, smart AI mentor, and well-structured courses — 
+      Algonimo transforms coding into a smooth and enjoyable skill.
+    </p>
+
+    <img src="../all imgs/main/last.jpeg" alt="Students learning to code" loading="lazy" />
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 <strong>Algonimo</strong> — Built with 💙 for learners worldwide.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="../assets/js/main.js" type="module"></script>
+
+</body>
+
+</html>

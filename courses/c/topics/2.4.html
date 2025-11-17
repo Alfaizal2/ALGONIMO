@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Structure of a C Program – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- Topic Content -->
+  <main class="topic-page">
+
+    <h1>2.4 Structure of a C Program</h1>
+
+    <section>
+      <h2><i class="fas fa-book"></i> Overview</h2>
+      <p>
+        Every C program follows a specific structure. Understanding this layout helps you write clean, readable, 
+        and error-free programs. All C programs share the same foundational building blocks.
+      </p>
+    </section>
+
+<section>
+  <h2><i class="fas fa-layer-group"></i> Basic Structure of a C Program</h2>
+
+<pre><code>#include &lt;stdio.h&gt;               // Header File
+
+int main()                     // Main Function
+{                
+
+printf("Hello, World!\n");  // Your logic goes here
+
+return 0;                 // Return statement
+}</code></pre>  
+
+  <p>This is the simplest and most common structure you'll see in C programs.</p>
+</section>
+
+    <section>
+      <h2><i class="fas fa-puzzle-piece"></i> Parts of a C Program Explained</h2>
+      <ul>
+        <li>
+          <strong>1. Header Files</strong><br>
+          Lines starting with <code>#include</code> bring external libraries into your program.
+          <br>Example: <code>#include &lt;stdio.h&gt;</code> allows you to use <code>printf()</code>.
+        </li>
+
+        <li>
+          <strong>2. main() Function</strong><br>
+          Execution of every C program begins in the <code>main()</code> function.
+        </li>
+
+        <li>
+          <strong>3. Body / Statements</strong><br>
+          All code inside <code>{ }</code> is executed line by line.  
+          Example: <code>printf("Hello");</code>
+        </li>
+
+        <li>
+          <strong>4. Return Statement</strong><br>
+          <code>return 0;</code> tells the operating system that the program ended correctly.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Important Notes</h2>
+      <ul>
+        <li>C is <strong>case-sensitive</strong> (e.g., <code>Main</code> ≠ <code>main</code>).</li>
+        <li>Every statement must end with a <strong>semicolon</strong> <code>;</code>.</li>
+        <li>Curly braces <code>{ }</code> define program blocks.</li>
+        <li>Comments help explain your code and are ignored by the compiler.</li>
+      </ul>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="2.3.html" class="prev-btn"><i class="fas fa-arrow-left"></i> Previous: Compiling and Running C Code</a>
+      <a href="2.5.html" class="next-btn">Next: main() Function Explained <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

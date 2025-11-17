@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Settings – Algonimo</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="../assets/page css/settings.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet"/>
+</head>
+
+<body>
+
+  <!-- ================= NAVBAR ================= -->
+  <header>
+    <nav class="navbar container">
+
+      <!-- Logo -->
+      <a href="main.html" class="logo">
+        <img src="../all imgs/main/logooo.png" class="logo-img" alt="Algonimo Logo" />
+      </a>
+
+      <!-- Right Controls -->
+      <div class="controls">
+
+        <!-- Logged-in Profile Menu -->
+        <div class="profile-menu" id="profileMenu" style="display:none;">
+
+          <!-- Avatar (auth.js will replace image) -->
+          <div class="avatar-icon" id="profileImg">
+            <img src="../all imgs/main/bot.png" class="avatar-img" alt="User Avatar">
+          </div>
+
+          <!-- Dropdown -->
+          <div class="profile-dropdown" id="profileDropdown">
+            <a href="profile.html"><i class="fas fa-user"></i> My Profile</a>
+            
+
+          </div>
+
+        </div>
+
+        <!-- Guest Buttons -->
+        <a id="signupBtn" class="ghost-btn" href="signup.html">Sign Up</a>
+        <a id="loginBtn" class="ghost-btn" href="signup.html">Login</a>
+
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- ================= SETTINGS BODY ================= -->
+  <main class="container settings">
+    <h1>Settings</h1>
+
+    <!-- ACCOUNT SETTINGS -->
+    <section class="card">
+      <h2><i class="fa-solid fa-user-pen"></i> Account</h2>
+
+      <div class="row">
+        <label>Full Name</label>
+        <input id="setName" type="text" placeholder="Your name"/>
+      </div>
+
+      <div class="row">
+        <label>Email Address</label>
+        <input id="setEmail" type="email" placeholder="you@example.com"/>
+      </div>
+
+      <div class="row two">
+        <div>
+          <label>New Password</label>
+          <input id="setPass" type="password" placeholder="Minimum 6 chars"/>
+        </div>
+        <div>
+          <label>Confirm Password</label>
+          <input id="setPass2" type="password" placeholder="Repeat password"/>
+        </div>
+      </div>
+
+      <button id="saveAccount" class="btn-primary">Save Changes</button>
+    </section>
+
+    <!-- SECURITY SETTINGS -->
+    <section class="card">
+      <h2><i class="fa-solid fa-shield-halved"></i> Security</h2>
+
+      <div class="row switch">
+        <label>Require PIN to open Dashboard</label>
+
+        <label class="toggle">
+          <input type="checkbox" id="toggleRequirePin"/>
+          <span></span>
+        </label>
+      </div>
+
+      <div class="row two">
+        <div>
+          <label>Set / Update PIN</label>
+          <input id="setPin" type="password" placeholder="4–6 digit PIN" maxlength="6" inputmode="numeric"/>
+        </div>
+
+        <div>
+          <label>Confirm PIN</label>
+          <input id="setPin2" type="password" placeholder="Repeat PIN" maxlength="6" inputmode="numeric"/>
+        </div>
+      </div>
+
+      <div class="row">
+        <button id="saveSecurity" class="btn-primary">
+          <i class="fa-solid fa-lock"></i> Save Security
+        </button>
+      </div>
+
+      <div class="row danger">
+        <button id="logoutAll" class="btn-danger">
+          <i class="fa-solid fa-right-from-bracket"></i> Logout
+        </button>
+
+        <button id="deleteAccount" class="btn-outline-danger">
+          <i class="fa-solid fa-user-xmark"></i> Delete Account
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= TOAST ================= -->
+  <div id="popupNotification" class="popup-notification">
+    <span id="popupMessage"></span>
+  </div>
+
+  <!-- ================= SCRIPTS ================= -->
+  <script type="module" src="../assets/js/auth.js"></script>
+  <script src="../assets/js/settings.js"></script>
+
+  <!-- ================= DROPDOWN FIX ================= -->
+  <script>
+    document.addEventListener("click", (e) => {
+      const menu = document.getElementById("profileMenu");
+      const avatar = document.getElementById("profileImg");
+
+      if (!menu || !avatar) return;
+
+      // Toggle dropdown on avatar click
+      if (e.target.closest("#profileImg")) {
+        menu.classList.toggle("active");
+        return;
+      }
+
+      // Close dropdown when clicking outside
+      if (!e.target.closest("#profileMenu")) {
+        menu.classList.remove("active");
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ALGONIMO – AI Assistant</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="../assets/page css/ai.css" />
+</head>
+<body>
+
+  <!-- ✅ PROFESSIONAL BACKGROUND (New) -->
+  <div class="pro-bg-layer"></div>
+  <div class="pro-bg-grid"></div>
+
+  <!-- ✅ BACKGROUND PARTICLES -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- ✅ HEADER -->
+  <header class="ai-header page-intro">
+    <h1 class="ai-title">ALGONIMO <span style="color:#22e7ff;">AI</span></h1>
+    <p class="ai-subtitle">Your Next-Gen Programming Mentor</p>
+  </header>
+
+  <!-- ✅ CHAT CONTAINER -->
+  <main class="chat-container">
+    <div id="chatBox" class="chat-box">
+
+      <!-- Default Bot Message -->
+      <div class="message bot mount-in">
+        <div class="bubble breathe">
+          <div class="ai-titleline">👋 Welcome to ALGONIMO AI</div>
+          <p>I’m <strong>Algonimo</strong> — your personal AI coding mentor. Ask me anything about programming!</p>
+          <button class="copy-btn">📋</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- ✅ CHAT OPTIONS (Clear + Download) -->
+  <div class="chat-options">
+    <button id="clearChat"><i class="fa-solid fa-trash"></i> Clear</button>
+    <button id="downloadChat"><i class="fa-solid fa-download"></i> Download</button>
+  </div>
+
+  <!-- ✅ INPUT DOCK -->
+  <form id="chatForm" class="input-dock" autocomplete="off">
+    <input type="text" id="userInput" placeholder="Ask anything…" required />
+    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+  </form>
+
+  <!-- JS -->
+  <script src="../assets/js/ai.js" defer></script>
+</body>
+</html>

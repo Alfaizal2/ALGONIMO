@@ -1,0 +1,538 @@
+/* =====================================
+   ALGONIMO — VS Code Level Compiler UI
+   Updated: Glassy + Futuristic + Better Mobile
+   ===================================== */
+
+/* Futuristic Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+/* =====================================
+   THEME TOKENS (Glassy Neon)
+===================================== */
+:root{
+  /* Backgrounds */
+  --bg1: #000510;             /* deeper navy */
+  --bg2: #00132a;             /* richer blue */
+  --bg-glow-1: rgba(0, 234, 255, 0.12);
+  --bg-glow-2: rgba(0, 140, 255, 0.12);
+
+  /* Surfaces */
+  --panel: rgba(255,255,255,0.08);
+  --panel-strong: rgba(255,255,255,0.12);
+  --panel-hover: rgba(255,255,255,0.16);
+
+  /* Borders & Text */
+  --border: rgba(255,255,255,0.15);
+  --border-strong: rgba(255,255,255,0.25);
+  --text: #e7fbff;
+  --muted: #b7d4db;
+
+  /* Accents */
+  --accent: #00eaff;
+  --accent-2: #29f5ff;
+  --accent-3: #6af7ff;
+
+  /* States */
+  --good: #9dffb0;
+  --bad: #ff6f7d;
+  --warn: #ffd37a;
+
+  /* Effects */
+  --radius: 14px;
+  --radius-sm: 10px;
+  --radius-lg: 20px;
+  --blur: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --accent-glow: 0 0 0.75rem rgba(0,234,255,0.8), 0 0 2.2rem rgba(0,234,255,0.35);
+}
+
+/* =====================================
+   BASE
+===================================== */
+*{ box-sizing:border-box; }
+
+html, body, #app { height:100%; width:100%; }
+
+html { color-scheme: dark; }
+
+body {
+  margin:0;
+  font-family:'Poppins', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1200px 800px at 10% -10%, var(--bg-glow-1) 0%, transparent 60%),
+    radial-gradient(1200px 800px at 100% 0%, var(--bg-glow-2) 0%, transparent 70%),
+    linear-gradient(160deg, var(--bg1), var(--bg2));
+  background-attachment: fixed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glass */
+.glass {
+  background: var(--panel);
+  border:1px solid var(--border);
+  backdrop-filter: blur(var(--blur));
+  -webkit-backdrop-filter: blur(var(--blur));
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Fallback if backdrop-filter unsupported */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .glass { background: rgba(10,18,30,0.8); }
+}
+
+/* Focus styles for accessibility */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Scrollbar (WebKit) */
+*::-webkit-scrollbar{ width:10px; height:10px; }
+*::-webkit-scrollbar-track{ background: transparent; }
+*::-webkit-scrollbar-thumb{
+  background: linear-gradient(180deg, rgba(0,234,255,0.55), rgba(0,140,255,0.45));
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 999px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* =====================================
+   TOP BAR
+===================================== */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:12px 16px;
+  margin:12px;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.brand{
+  display:flex;
+  flex-direction:column;
+}
+.brand .logo{
+  font-family:'Orbitron', sans-serif;
+  font-size:23px;
+  letter-spacing:1.5px;
+  color:var(--accent);
+  text-shadow: var(--accent-glow);
+}
+.brand .subtitle{
+  opacity:.75;
+  font-size:11px;
+  color: var(--muted);
+}
+
+.actions{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  max-width:100%;
+  overflow-x:auto;
+  padding-bottom:4px;
+}
+
+/* =====================================
+   CONTROLS (Buttons, Selects)
+===================================== */
+.actions button,
+.actions select{
+  border:1px solid var(--border);
+  background:rgba(255,255,255,0.07);
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:var(--radius-sm);
+  cursor:pointer;
+  font-size:13px;
+  transition: transform .08s ease, background .18s ease, box-shadow .18s ease, border-color .18s ease;
+  backdrop-filter:blur(6px);
+  -webkit-backdrop-filter:blur(6px);
+  min-height:38px;
+}
+
+.actions button:hover,
+.actions select:hover{
+  background:var(--panel-strong);
+  border-color: var(--border-strong);
+}
+
+.actions button:active{
+  transform: translateY(1px) scale(0.995);
+}
+
+.actions button.primary{
+  background:linear-gradient(180deg, var(--accent), var(--accent-2));
+  color:#00141f;
+  font-weight:700;
+  box-shadow: var(--accent-glow);
+  border:1px solid transparent;
+}
+
+.actions .divider{
+  width:1px;
+  height:22px;
+  background:var(--border);
+  flex:0 0 1px;
+}
+
+/* ALGONIMO Neon Dropdown */
+.icon-select {
+  appearance:none;
+  padding:8px 36px 8px 12px;
+  font-family:'Orbitron', sans-serif;
+  font-size:12px;
+  letter-spacing:1px;
+  background:rgba(0,234,255,0.10);
+  border:1px solid var(--accent);
+  color:var(--accent);
+  box-shadow:0 0 10px rgba(0,234,255,0.45);
+  border-radius:var(--radius-sm);
+  cursor:pointer;
+  position: relative;
+}
+
+/* Custom arrow */
+.icon-select::-ms-expand { display:none; }
+.icon-select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='cyan' width='14' height='14' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'><path d='M5 7l5 5 5-5'/></svg>");
+  background-repeat:no-repeat;
+  background-position:right 10px center;
+  background-size:14px;
+}
+
+/* =====================================
+   LAYOUT GRID
+===================================== */
+.layout{
+  display:grid;
+  grid-template-columns: 240px 1fr 340px;
+  grid-template-rows: minmax(0, calc(100dvh - 105px));
+  gap:12px;
+  padding:0 12px 12px 12px;
+}
+
+/* =====================================
+   EXPLORER
+===================================== */
+.explorer{
+  overflow:hidden;
+  display:grid;
+  grid-template-rows:auto 1fr;
+}
+
+.explorer-head{
+  padding:11px 12px;
+  font-size:12px;
+  letter-spacing:1px;
+  font-family:'Orbitron';
+  color:var(--accent-2);
+  border-bottom:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.00));
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+.file-list{
+  padding:6px;
+  margin:0;
+  list-style:none;
+  overflow:auto;
+}
+
+.file-list li{
+  padding:9px 10px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  border-radius:10px;
+  cursor:pointer;
+  transition: background .18s ease, transform .06s ease, box-shadow .18s ease;
+  border:1px solid transparent;
+}
+
+.file-list li.active{
+  background:var(--panel-strong);
+  border-color: var(--border);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+}
+.file-list li:hover{
+  background:rgba(255,255,255,0.10);
+}
+
+.file-list .badge{
+  font-size:10px;
+  padding:2px 6px;
+  border-radius:999px;
+  border:1px solid var(--border);
+  color: var(--muted);
+  background: rgba(255,255,255,0.05);
+}
+
+/* =====================================
+   EDITOR
+===================================== */
+.editor-zone{
+  display:grid;
+  grid-template-rows:40px 1fr;
+  overflow:hidden;
+}
+
+.tabs{
+  display:flex;
+  gap:6px;
+  padding:6px;
+  overflow-x:auto;
+  border-bottom:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.00));
+}
+
+.tab{
+  padding:7px 12px;
+  border-radius:10px;
+  font-size:12px;
+  background:rgba(255,255,255,0.07);
+  cursor:pointer;
+  font-family:'Poppins';
+  border:1px solid rgba(255,255,255,0.07);
+  transition: background .18s ease, box-shadow .18s ease, transform .06s ease, border-color .18s ease;
+  white-space: nowrap;
+}
+
+.tab.active{
+  background:rgba(255,255,255,0.15);
+  border-color: var(--border-strong);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.22);
+}
+
+.tab:hover{ background: var(--panel-strong); }
+
+.tab .close{ opacity:.7; cursor:pointer; margin-left:8px; }
+.tab .close:hover{ opacity:1; }
+
+.monaco-host{
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  border-radius:0 0 var(--radius) var(--radius);
+}
+
+/* =====================================
+   RIGHT PANEL
+===================================== */
+.right-panel{
+  display:grid;
+  grid-auto-rows:minmax(150px, 1fr);
+  gap:12px;
+}
+
+.panel{
+  padding:8px;
+  display:flex;
+  flex-direction:column;
+}
+
+.panel-title{
+  font-size:12px;
+  font-family:'Orbitron';
+  letter-spacing:1px;
+  padding:10px 8px 8px 8px;
+  color:var(--accent-2);
+  border-bottom:1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.00));
+  border-top-left-radius: var(--radius);
+  border-top-right-radius: var(--radius);
+}
+
+#stdin{
+  flex:1;
+  resize:none;
+  background:transparent;
+  color:var(--text);
+  border:none;
+  font-family:'Poppins', ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  padding:10px;
+  line-height:1.4;
+}
+
+.io{
+  flex:1;
+  overflow:auto;
+  padding:10px;
+  white-space:pre-wrap;
+  background: rgba(255,255,255,0.04);
+  border-radius: var(--radius);
+  border:1px solid var(--border);
+}
+
+/* Colors */
+#stdout{ color:var(--good); }
+#stderr{ color:var(--bad); }
+
+/* =====================================
+   DEBUGGING
+===================================== */
+.debug-line{
+  background:rgba(255,255,0,0.25) !important;
+}
+
+.breakpoint{
+  width:12px;
+  height:12px;
+  background:#ff0033;
+  border-radius:50%;
+  margin-left:4px;
+  box-shadow: 0 0 12px rgba(255,0,51,0.6);
+}
+
+/* =====================================
+   MOBILE & RESPONSIVE
+   Ultra smooth & clean
+===================================== */
+
+/* Large Tablets/Laptops narrowing */
+@media (max-width: 1280px) {
+  .layout{
+    grid-template-columns: 220px 1fr 320px;
+  }
+}
+
+/* Stack layout */
+@media (max-width:1100px){
+
+  .layout{
+    grid-template-columns:1fr;
+    grid-template-rows:auto auto auto;
+    grid-auto-rows: auto;
+  }
+
+  .topbar{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:14px;
+    margin:12px;
+  }
+
+  .actions{
+    width:100%;
+    overflow-x:auto;
+    padding-bottom:8px;
+    gap:8px;
+  }
+
+  .actions button,
+  .actions select{
+    flex-shrink:0;
+  }
+
+  .explorer{
+    height:220px;
+  }
+
+  .editor-zone{
+    height:420px; /* a bit more room for code on tablets */
+  }
+
+  .right-panel{
+    grid-auto-rows:auto;
+  }
+
+  .panel{
+    min-height:180px;
+  }
+}
+
+/* Phones */
+@media (max-width:600px){
+
+  body { font-size: 15px; }
+
+  .topbar{
+    padding:10px;
+    margin:10px;
+    gap:10px;
+  }
+
+  .brand .logo{ font-size:21px; }
+  .brand .subtitle{ font-size:10px; }
+
+  .actions{
+    flex-direction:row;
+    overflow-x:auto;
+    gap:8px;
+    padding-bottom:10px;
+  }
+
+  .actions button,
+  .actions select{
+    min-width:112px;
+    text-align:center;
+  }
+
+  .icon-select{
+    padding:8px 34px 8px 10px;
+    font-size:11px;
+  }
+
+  .layout{
+    padding:0 10px 10px 10px;
+  }
+
+  .explorer{
+    height:200px;
+  }
+
+  .editor-zone{
+    height:360px;
+  }
+
+  .file-list li{
+    padding:8px 9px;
+  }
+}
+
+/* Very Small Phones */
+@media (max-width:380px){
+  .actions button,
+  .actions select{
+    min-width:100px;
+    padding:7px 10px;
+  }
+}
+
+/* =====================================
+   OPTIONAL: Hovers & Micro-interactions
+===================================== */
+.file-list li:active,
+.tab:active {
+  transform: translateY(1px);
+}
+
+/* Subtle neon border-on-focus inside panels */
+.panel:focus-within {
+  box-shadow: inset 0 0 0 1px rgba(0,234,255,0.35), 0 0 0 0 transparent;
+  border-radius: var(--radius);
+}
+
+/* =====================================
+   UTILS
+===================================== */
+.hidden { display:none !important; }
+.center { display:grid; place-items:center; }
+
+/* =====================================
+   END
+===================================== */

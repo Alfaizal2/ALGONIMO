@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>const and volatile – Advanced Topics – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" 
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>12.7 <code>const</code> and <code>volatile</code> in C</h1>
+
+    <!-- ✅ const -->
+    <section>
+      <h2><i class="fas fa-lock"></i> Understanding <code>const</code></h2>
+
+      <p>
+        The <code>const</code> keyword is used to declare variables whose values 
+        <strong>cannot be modified</strong> after initialization.  
+        It protects data from accidental changes.
+      </p>
+
+<pre><code>const int age = 30;
+age = 40;   // ❌ Error: cannot modify a const variable
+</code></pre>
+
+      <p>
+        Using <code>const</code> makes code safer and more readable.
+      </p>
+    </section>
+
+    <!-- ✅ volatile -->
+    <section>
+      <h2><i class="fas fa-bolt"></i> Understanding <code>volatile</code></h2>
+
+      <p>
+        <code>volatile</code> tells the compiler:
+      </p>
+
+      <p class="highlight">
+        ✅ <strong>The value of this variable may change unexpectedly.</strong><br>
+        ✅ <strong>Do NOT optimize it.</strong>
+      </p>
+
+      <p>
+        It is used when variables can change due to:
+      </p>
+
+      <ul>
+        <li>Hardware interrupts</li>
+        <li>Multithreading</li>
+        <li>External devices</li>
+        <li>Memory-mapped registers</li>
+      </ul>
+
+<pre><code>volatile int flag;
+
+while (flag == 0) {
+    // system waits until hardware updates the flag
+}
+</code></pre>
+    </section>
+
+    <!-- ✅ Why Volatile -->
+    <section>
+      <h2><i class="fas fa-question-circle"></i> Why Use <code>volatile</code>?</h2>
+
+      <ul>
+        <li>Prevents compiler from skipping variable checks</li>
+        <li>Ensures every read/write accesses real memory</li>
+        <li>Essential in embedded software</li>
+        <li>Prevents incorrect optimizations</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Pointers with const -->
+    <section>
+      <h2><i class="fas fa-link"></i> Using <code>const</code> with Pointers</h2>
+
+<pre><code>const int *p;      
+// value cannot change, pointer can change
+
+int *const p2 = &x;  
+// pointer fixed, value can change
+
+const int *const p3 = &x; 
+// both value and pointer are constant
+</code></pre>
+
+      <p>
+        Understanding pointer–const combinations is crucial for APIs and library design.
+      </p>
+    </section>
+
+    <!-- ✅ Summary -->
+    <section>
+      <h2><i class="fas fa-thumbtack"></i> Summary</h2>
+
+      <ul>
+        <li><strong>const</strong> → variable value cannot be changed</li>
+        <li><strong>volatile</strong> → value may change anytime externally</li>
+        <li>Together, they form:
+<pre><code>const volatile int sensorValue;
+</code></pre>
+        Useful for hardware inputs.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="12.6.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Bit Fields
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

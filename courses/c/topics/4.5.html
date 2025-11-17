@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Increment & Decrement Operators in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo"><a href="../c.html" style="color: inherit;">ALGONIMO</a></div>
+    <ul class="nav-links">
+      
+    </ul>
+  </nav>
+
+  <!-- ✅ Content -->
+  <main class="topic-page">
+
+    <h1>4.5 Increment & Decrement Operators in C</h1>
+
+    <section>
+      <p>
+        Increment and decrement operators are **unary operators** used to increase or decrease a value by <strong>1</strong>.
+        They are extremely common in loops, counters, and iterative logic.
+      </p>
+
+      <div class="feature-list">
+        <ul>
+          <li><strong>Increment (++):</strong> increases value by 1</li>
+          <li><strong>Decrement (--):</strong> decreases value by 1</li>
+          <li>Both have <strong>Prefix</strong> and <strong>Postfix</strong> forms</li>
+          <li>Prefix updates first → value used after update</li>
+          <li>Postfix uses value first → update happens after</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ✅ Neon Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Overview of Increment & Decrement Operators</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Name</th>
+              <th>Example</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Operator"><code>++a</code></td>
+              <td data-label="Name">Pre-increment</td>
+              <td data-label="Example">x = ++a;</td>
+              <td data-label="Description">Increments <code>a</code> first → then assigns to <code>x</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Operator"><code>a++</code></td>
+              <td data-label="Name">Post-increment</td>
+              <td data-label="Example">x = a++;</td>
+              <td data-label="Description">Assigns old value to <code>x</code> → then increments <code>a</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Operator"><code>--a</code></td>
+              <td data-label="Name">Pre-decrement</td>
+              <td data-label="Example">x = --a;</td>
+              <td data-label="Description">Decrements first → new value stored in <code>x</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Operator"><code>a--</code></td>
+              <td data-label="Name">Post-decrement</td>
+              <td data-label="Example">x = a--;</td>
+              <td data-label="Description">Old value goes to <code>x</code> → then <code>a</code> decreases</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Example Code -->
+    <section>
+      <h2><i class="fas fa-code"></i> Example Program</h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, x;
+
+    x = ++a;  // Pre-increment
+    printf("x = %d, a = %d\n", x, a);
+
+    x = a--;  // Post-decrement
+    printf("x = %d, a = %d", x, a);
+
+    return 0;
+}</code></pre>
+
+      <div class="mentor-box">
+        <i class="fas fa-lightbulb"></i>
+        Output:
+        <strong>
+          x = 6, a = 6<br>
+          x = 6, a = 5
+        </strong>
+      </div>
+
+      <p><strong>Explanation:</strong></p>
+      <ul>
+        <li><code>++a</code> → increases first → a becomes 6 → x receives 6</li>
+        <li><code>a--</code> → x receives old value 6 → then a becomes 5</li>
+        <li>Final values: <strong>x = 6</strong>, <strong>a = 5</strong></li>
+      </ul>
+    </section>
+
+    <!-- ✅ Real-Life Example -->
+    <section>
+      <h2><i class="fas fa-user-check"></i> Real-Life Example</h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int visitors = 0;
+
+    visitors++;   // new visitor enters
+    visitors++;   // another enters
+    visitors--;   // one leaves
+
+    printf("Current Visitors: %d", visitors);
+    return 0;
+}</code></pre>
+
+      <div class="mentor-box">
+        <i class="fas fa-star"></i> Output: <strong>1</strong>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="4.4.html" class="prev-btn"><i class="fas fa-arrow-left"></i> Previous: Assignment Operators</a>
+
+      <a href="4.6.html" class="next-btn">Next: Bitwise Operators <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

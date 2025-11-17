@@ -1,0 +1,208 @@
+/* ============================================================
+   NAVBAR / PROFILE SYSTEM (Optimized Premium Version)
+============================================================ */
+
+header {
+  position: sticky;
+  top: 0;
+  background: rgba(10, 20, 40, 0.55);
+  padding: 0.7rem 0;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(56,189,248,0.12);
+  z-index: 999;
+  transition: background 0.3s ease;
+}
+
+header:hover {
+  background: rgba(12, 25, 50, 0.75);
+}
+
+/* ============================================================
+   NAVBAR WRAPPER
+============================================================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* ============================================================
+   LOGO
+============================================================ */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  width: clamp(42px, 4vw, 52px);
+  height: clamp(42px, 4vw, 52px);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(56,189,248,0.30);
+  transition: 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.05);
+}
+
+.logo span {
+  font-family: "Merriweather", serif;
+  color: #38bdf8;
+  font-size: clamp(1.3rem, 1.7vw, 1.8rem);
+  font-weight: 900;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(56,189,248,0.35);
+}
+
+/* ============================================================
+   GHOST BUTTON (GUEST MODE)
+============================================================ */
+.ghost-btn {
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #dbeafe;
+  border: 1px solid rgba(56,189,248,0.4);
+  background: rgba(56,189,248,0.12);
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: 0.25s ease;
+}
+
+.ghost-btn:hover {
+  background: rgba(56,189,248,0.2);
+  color: #fff;
+  box-shadow: 0 0 18px rgba(56,189,248,0.4);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   CONTROLS AREA
+============================================================ */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ============================================================
+   PROFILE AVATAR
+============================================================ */
+.profile-menu {
+  position: relative;
+  display: none; /* JS toggles this when user is logged in */
+}
+
+.avatar-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid rgba(56,189,248,0.35);
+  background: rgba(56,189,248,0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 0 12px rgba(56,189,248,0.15);
+}
+
+.avatar-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-icon i {
+  color: #9fd8ff;
+  font-size: 20px;
+}
+
+.avatar-icon:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 25px rgba(56,189,248,0.55);
+}
+
+/* ============================================================
+   DROPDOWN MENU
+============================================================ */
+.profile-dropdown {
+  position: absolute;
+  right: 0;
+  top: 120%;
+  width: 190px;
+
+  background: rgba(10, 20, 40, 0.95);
+  border: 1px solid rgba(56,189,248,0.15);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+
+  box-shadow: 0 0 25px rgba(56,189,248,0.25);
+
+  display: flex;
+  flex-direction: column;
+
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  padding: 8px 0;
+
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.profile-menu.active .profile-dropdown {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.profile-dropdown a {
+  padding: 12px 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: #d5eaff;
+  font-size: 0.95rem;
+  transition: 0.25s ease;
+}
+
+.profile-dropdown a:hover {
+  background: rgba(56,189,248,0.12);
+  padding-left: 22px;
+  color: #fff;
+}
+
+/* ============================================================
+   MOBILE RESPONSIVE
+============================================================ */
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 0 1.2rem;
+  }
+
+  .avatar-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .ghost-btn {
+    padding: 7px 12px;
+    font-size: 0.8rem;
+  }
+
+  .profile-dropdown {
+    width: 165px;
+  }
+
+  .logo span {
+    font-size: 1.25rem;
+  }
+}

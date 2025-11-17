@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Memory Leaks & Management – Dynamic Memory in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1>11.3 Memory Leaks & Management</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fas fa-book-open"></i> Introduction</h2>
+      <p>
+        When using dynamic memory, managing allocated memory properly is very important.
+        Forgetting to release memory results in a <strong>memory leak</strong> — unused memory that
+        stays allocated and reduces system performance.
+      </p>
+    </section>
+
+    <!-- ✅ What is a Memory Leak? -->
+    <section>
+      <h2><i class="fas fa-droplet"></i> What is a Memory Leak?</h2>
+      <p>
+        A memory leak happens when a program allocates memory but never frees it using
+        <code>free()</code>. Over time, this can slow down or even crash systems.
+      </p>
+
+<pre><code>// Memory leak example
+int *ptr = malloc(100 * sizeof(int));
+// Forgot: free(ptr);  → Memory leak!
+</code></pre>
+    </section>
+
+    <!-- ✅ How to Prevent Memory Leaks -->
+    <section>
+      <h2><i class="fas fa-shield-halved"></i> Preventing Memory Leaks</h2>
+      <ul>
+        <li>Always pair <code>malloc()</code>, <code>calloc()</code>, <code>realloc()</code> with <code>free()</code>.</li>
+        <li>Set pointers to <code>NULL</code> after freeing.</li>
+        <li>Use tools like <strong>Valgrind</strong> (Linux) to detect leaks.</li>
+        <li>Keep track of memory allocations in large programs.</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Example -->
+    <section>
+      <h2><i class="fas fa-flask"></i> Example: Safe Memory Management</h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *data = malloc(5 * sizeof(int));
+
+    if (data == NULL) {
+        printf("Memory allocation failed!\n");
+        return 1;
+    }
+
+    for (int i = 0; i &lt; 5; i++)
+        data[i] = i * 2;
+
+    for (int i = 0; i &lt; 5; i++)
+        printf("%d ", data[i]);
+
+    free(data);     // Release memory
+    data = NULL;    // Avoid dangling pointer
+
+    return 0;
+}
+</code></pre>
+    </section>
+
+    <!-- ✅ Compiler -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Try It Yourself</h2>
+
+      <div class="code-section">
+
+<textarea id="cCode" spellcheck="false">
+// Memory Leak Prevention – ALGONIMO
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+
+    int *p = malloc(4 * sizeof(int));
+
+    if (p == NULL) {
+        printf("Allocation failed!");
+        return 1;
+    }
+
+    for (int i = 0; i < 4; i++)
+        p[i] = i + 10;
+
+    printf("Values: ");
+    for (int i = 0; i < 4; i++)
+        printf("%d ", p[i]);
+
+    free(p);   // ✅ Free memory
+    p = NULL;  // ✅ Good practice
+
+    return 0;
+}
+</textarea>
+
+        <div class="input-section">
+          <label><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Not required for this program..."></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ✅ Summary Table -->
+    <section>
+      <h2><i class="fas fa-table-list"></i> Summary Table</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Concept</th>
+              <th>Explanation</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Concept">Memory Leak</td>
+              <td data-label="Explanation">Allocated memory not released using <code>free()</code></td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept"><code>free()</code></td>
+              <td data-label="Explanation">Deallocates dynamically allocated memory</td>
+            </tr>
+
+            <tr>
+              <td data-label="Concept">Set pointer to NULL</td>
+              <td data-label="Explanation">Prevents accessing freed memory (dangling pointer)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Navigation -->
+    <div class="topic-navigation">
+      <a href="11.2.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: realloc() and free()
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

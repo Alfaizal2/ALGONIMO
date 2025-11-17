@@ -1,0 +1,448 @@
+/* === IMPORT FONTS === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Merriweather:wght@700;900&display=swap');
+
+/* === GLOBAL === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #e3f2fd;
+  background: radial-gradient(circle at top left, #001933, #000c1f);
+  background-attachment: fixed;
+  overflow-x: hidden;
+  animation: bgFlow 20s ease-in-out infinite alternate;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(56,189,248,0.06) 0%, transparent 60%),
+    radial-gradient(circle at 85% 80%, rgba(56,189,248,0.08) 0%, transparent 70%);
+  z-index: -1;
+  animation: subtleGlow 18s ease-in-out infinite alternate;
+}
+
+@keyframes bgFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes subtleGlow {
+  0% { opacity: 0.5; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0.5; }
+}
+
+/* === NAVBAR === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: rgba(10, 20, 40, 0.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(56,189,248,0.12);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(56,189,248,0.25);
+}
+
+.controls {
+  display: flex;
+  align-items: center;
+}
+
+/* === AVATAR ICON (Navbar + Profile) === */
+.avatar-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(56,189,248,0.12);
+  border: 2px solid rgba(56,189,248,0.35);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden; /* ✅ Fix image overflow */
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(56,189,248,0.35);
+}
+
+.avatar-icon i {
+  font-size: 20px;
+  color: #9fd8ff;
+}
+
+/* ✅ Support avatar image */
+.avatar-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 22px rgba(56,189,248,0.55);
+}
+
+/* === PROFILE DROPDOWN === */
+.profile-menu {
+  position: relative;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 180px;
+  background: rgba(10, 20, 40, 0.95);
+  border: 1px solid rgba(56,189,248,0.12);
+  border-radius: 12px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(56,189,248,0.25);
+  display: none;
+  overflow: hidden;
+}
+
+.profile-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  color: #d5eaff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.profile-dropdown a:hover {
+  background: rgba(56,189,248,0.12);
+}
+
+.profile-dropdown i {
+  color: #38bdf8;
+}
+
+/* === PROFILE PAGE === */
+.profile-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.profile-container h1 {
+  font-family: 'Merriweather', serif;
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #38bdf8;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 12px rgba(56,189,248,0.35);
+}
+
+/* === PROFILE CARD === */
+.profile-card {
+  background: rgba(10, 20, 40, 0.55);
+  padding: 2.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(56,189,248,0.15);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  backdrop-filter: blur(14px);
+  max-width: 550px;
+  margin: auto;
+}
+
+/* === PROFILE PAGE AVATAR === */
+.avatar-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.3rem;
+}
+
+.avatar-section .avatar-icon {
+  width: 110px;
+  height: 110px;
+  border-width: 3px;
+}
+
+.avatar-section .avatar-icon i {
+  font-size: 48px;
+}
+
+.avatar-section .avatar-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* ✅ Fix image distortion */
+}
+
+/* === READ-ONLY FIELDS === */
+.readonly-info {
+  text-align: left;
+  margin-top: 1rem;
+}
+
+.readonly-info p {
+  font-size: 1rem;
+  margin: 0.7rem 0;
+  color: #d7eaff;
+}
+
+.readonly-info strong {
+  color: #9ccfff;
+  font-weight: 600;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 600px) {
+  .profile-card {
+    padding: 1.7rem;
+  }
+
+  .profile-container h1 {
+    font-size: 2rem;
+  }
+
+  .avatar-section .avatar-icon {
+    width: 90px;
+    height: 90px;
+  }
+
+  .avatar-section .avatar-icon i {
+    font-size: 38px;
+  }
+}
+/* === GUEST MODE BUTTONS (Sign Up / Login) === */
+.ghost-btn {
+  padding: 8px 18px;
+  margin-left: 12px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #bfe7ff;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid rgba(56,189,248,0.45);
+  background: rgba(56,189,248,0.08);
+  backdrop-filter: blur(8px);
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(56,189,248,0.22);
+}
+
+.ghost-btn:hover {
+  background: rgba(56,189,248,0.20);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(56,189,248,0.40);
+  color: #e6f7ff;
+}
+
+/* === HIDE/SHOW CONTROLS BASED ON AUTH === */
+#profileMenu {
+  display: none; /* shown when logged in */
+}
+
+#loginBtn,
+#signupBtn {
+  display: inline-block; /* hidden when logged in */
+}
+
+/* === MOBILE ADJUSTMENTS (Small Screens) === */
+@media (max-width: 600px) {
+  .ghost-btn {
+    padding: 7px 14px;
+    font-size: 14px;
+    margin-left: 8px;
+  }
+}
+/* ============================================================
+   ⭐ ALGONIMO — NAVBAR USER SYSTEM CSS
+   Matches new main.js features
+============================================================ */
+
+/* === NAVBAR BASE === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: rgba(10, 20, 40, 0.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(56,189,248,0.12);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.35);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* === LOGO === */
+.logo-img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(56,189,248,0.25);
+}
+
+/* === CONTROLS (Right Side) === */
+.controls {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+}
+
+/* ============================================================
+   👤 USER AVATAR (Navbar)
+============================================================ */
+.avatar-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 2px solid rgba(56,189,248,0.35);
+  background: rgba(56,189,248,0.12);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(56,189,248,0.35);
+}
+
+.avatar-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* === Hover Glow === */
+.avatar-icon:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 22px rgba(56,189,248,0.55);
+  border-color: rgba(56,189,248,0.55);
+}
+
+/* === Optional: Avatar Pulse Effect === */
+.avatar-pulse {
+  animation: navPulse 2.4s infinite ease-in-out;
+}
+
+@keyframes navPulse {
+  0% { box-shadow: 0 0 12px rgba(56,189,248,0.35); }
+  50% { box-shadow: 0 0 30px rgba(56,189,248,0.65); }
+  100% { box-shadow: 0 0 12px rgba(56,189,248,0.35); }
+}
+
+/* ============================================================
+   🟦 PROFILE DROPDOWN MENU
+============================================================ */
+.profile-menu {
+  position: relative;
+  display: none; /* shown via JS when logged in */
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 120%;
+  right: 0;
+  width: 190px;
+  background: rgba(10, 20, 40, 0.95);
+  border: 1px solid rgba(56,189,248,0.12);
+  border-radius: 12px;
+  backdrop-filter: blur(14px);
+  box-shadow: 0 0 25px rgba(56,189,248,0.25);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: 0.25s ease;
+}
+
+/* === Show Dropdown (JS adds class) === */
+.profile-menu.active .profile-dropdown {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === Dropdown Links === */
+.profile-dropdown a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 15px;
+  color: #d5eaff;
+  font-size: 15px;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.profile-dropdown i {
+  color: #38bdf8;
+}
+
+/* Hover */
+.profile-dropdown a:hover {
+  background: rgba(56,189,248,0.12);
+  color: #eaf7ff;
+  padding-left: 20px;
+}
+
+/* ============================================================
+   🟠 GUEST MODE BUTTONS (SIGN UP / LOGIN)
+============================================================ */
+.ghost-btn {
+  padding: 8px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #cbeaff;
+  border: 2px solid rgba(56,189,248,0.4);
+  background: rgba(56,189,248,0.08);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  transition: 0.3s ease;
+  box-shadow: 0 0 12px rgba(56,189,248,0.22);
+}
+
+.ghost-btn:hover {
+  background: rgba(56,189,248,0.20);
+  color: #e9faff;
+  box-shadow: 0 0 18px rgba(56,189,248,0.40);
+  transform: translateY(-2px);
+}
+
+/* ============================================================
+   📱 RESPONSIVE (Mobile)
+============================================================ */
+@media (max-width: 600px) {
+  .ghost-btn {
+    padding: 6px 14px;
+    font-size: 13px;
+  }
+  
+  .avatar-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .profile-dropdown {
+    width: 160px;
+  }
+}

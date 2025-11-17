@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Compiling and Running C Code – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- Topic Content -->
+  <main class="topic-page">
+
+    <h1>2.3 Compiling and Running C Code</h1>
+
+    <section>
+      <h2><i class="fas fa-book"></i> Introduction</h2>
+      <p>
+        Once you write a C program, the next step is to <strong>compile</strong> it. 
+        The compiler checks your code for errors and converts it into machine-readable form.
+        After successful compilation, you can run the program and see the output.
+      </p>
+      <p>
+        Here’s a simple and clear guide to compiling and running C programs using the GCC compiler.
+      </p>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-cogs"></i> Steps to Compile and Run a C Program</h2>
+      <ul>
+        <li>Save your file with a <code>.c</code> extension (for example: <code>hello.c</code>).</li>
+        <li>Open a terminal, command prompt, or VS Code terminal.</li>
+        <li>Compile the program using GCC:
+        <pre><code>gcc hello.c -o hello</code></pre>
+        </li>
+        <li>If there are no errors, run the program:
+        <pre><code>./hello</code></pre>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-desktop"></i> Example Terminal Output</h2>
+      <p>This is how it looks when you compile and run <code>hello.c</code>:</p>
+
+      <pre><code>$ gcc hello.c -o hello
+$ ./hello
+Hello, World!</code></pre>
+
+      <p>Your program output appears on the next line — in this case, the classic “Hello, World!”.</p>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-exclamation-circle"></i> If You Get Errors</h2>
+      <p>Check the following common issues:</p>
+      <ul>
+        <li>Did you type the code exactly as shown?</li>
+        <li>Did you save the file with a <code>.c</code> extension?</li>
+        <li>Is your GCC compiler installed correctly?</li>
+        <li>Are you running the command from the correct folder?</li>
+      </ul>
+      <p>
+        Compilers provide error messages — read them carefully as they usually point to the line causing the issue.
+      </p>
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="2.2.html" class="prev-btn"><i class="fas fa-arrow-left"></i> Previous: Writing Your First Program</a>
+      <a href="2.4.html" class="next-btn">Next: Structure of a C Program <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>

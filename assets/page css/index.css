@@ -1,0 +1,295 @@
+/* ===========================================================
+   FONTS + RESET
+=========================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700;900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body { overflow-x: hidden; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: #eaf6ff;
+  background: radial-gradient(circle at top left, #001933, #000c1f);
+  background-attachment: fixed;
+  line-height: 1.6;
+  animation: bgMove 18s ease-in-out infinite alternate;
+  position: relative;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+/* ===========================================================
+   BACKGROUND OVERLAY
+=========================================================== */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(56,189,248,0.07), transparent 65%),
+    radial-gradient(circle at 85% 80%, rgba(56,189,248,0.08), transparent 70%);
+  z-index: -1;
+  animation: glowPulse 18s ease-in-out infinite alternate;
+}
+
+@keyframes glowPulse {
+  0% { opacity: 0.45; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.05); }
+  100% { opacity: 0.45; transform: scale(1); }
+}
+
+/* ===========================================================
+   NAVIGATION BAR
+=========================================================== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 2rem;
+  background: rgba(10, 20, 40, 0.55);
+  border-bottom: 1px solid rgba(56,189,248,0.18);
+  backdrop-filter: blur(14px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  opacity: 0;
+  animation: fadeDown 1s ease forwards;
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logo-img {
+  width: clamp(55px, 5vw, 70px);
+  height: clamp(55px, 5vw, 70px);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(56,189,248,0.35);
+  transition: 0.35s ease;
+}
+
+.logo-img:hover { transform: scale(1.08); }
+
+.signup-button {
+  background: linear-gradient(90deg, #1fb6ff, #3b82f6);
+  padding: 0.7rem 1.4rem;
+  border-radius: 14px;
+  font-weight: 700;
+  color: white;
+  transition: 0.25s ease;
+}
+
+.signup-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(56,189,248,0.45);
+}
+
+/* ===========================================================
+   HERO SECTION – DESKTOP FIXED
+=========================================================== */
+
+.hero {
+  max-width: 1200px;       /* FIX: tighter centered container */
+  margin: auto;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 3%;
+  gap: 2rem;               /* FIX: less separation */
+  position: relative;
+  animation: fadeUp 1.2s ease forwards;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+#particles-js {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* ================= HERO LEFT CONTENT ================= */
+.hero-content {
+  flex: 1;
+  max-width: 480px;        /* FIX: more compact text block */
+  z-index: 2;
+}
+
+.hero-content h1 {
+  font-family: 'Merriweather', serif;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  font-weight: 900;
+  color: #38bdf8;
+  margin-bottom: 0.8rem;
+  letter-spacing: 0.8px;
+  text-shadow: 0 0 18px rgba(56,189,248,0.45);
+}
+
+.subheading {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  color: #d0e8ff;
+  margin-bottom: 1rem;
+}
+
+.tagline {
+  color: #a6dbff;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.cta-button {
+  background: linear-gradient(90deg, #1fb6ff, #3b82f6);
+  padding: 0.9rem 2.2rem;
+  border-radius: 14px;
+  font-weight: 700;
+  color: white;
+  display: inline-block;
+  font-size: 1.1rem;
+  transition: 0.25s ease;
+}
+
+.cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 24px rgba(56,189,248,0.4);
+}
+
+/* ================= HERO IMAGE – FIXED ================= */
+.hero-image {
+  flex: 1;
+  display: flex;                 /* FIX */
+  justify-content: center;       /* FIX */
+  align-items: center;           /* FIX */
+  z-index: 2;
+}
+
+.hero-image img {
+  width: 100%;                   /* FIX */
+  max-width: 420px;              /* FIX */
+  border-radius: 20px;
+  filter: drop-shadow(0 0 24px rgba(56,189,248,0.4));
+  animation: float 4.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+/* ===========================================================
+   RESPONSIVE
+=========================================================== */
+@media (max-width: 992px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 60px 1.5rem;
+    gap: 2.5rem;
+  }
+  .hero-image img { width: 75%; }
+}
+
+@media (max-width: 768px) {
+  .hero { padding: 50px 1.2rem; }
+  .hero-image img { width: 82%; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 35px 0.7rem; gap: 1rem; }
+  .hero-image img { width: 86%; }
+}
+
+/* ===========================================================
+   FEATURES SECTION
+=========================================================== */
+.wel.container.features {
+  padding: 4.5rem 1.5rem;
+  text-align: center;
+}
+
+.wel-title {
+  font-family: 'Merriweather', serif;
+  font-size: 2.15rem;
+  color: #38bdf8;
+  margin-bottom: 2.7rem;
+  text-shadow: 0 0 14px rgba(56,189,248,0.35);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2.2rem;
+}
+
+.feature-card {
+  background: rgba(10, 20, 40, 0.45);
+  border: 1px solid rgba(56,189,248,0.15);
+  padding: 2rem 1.5rem;
+  border-radius: 16px;
+  transition: 0.28s ease;
+  box-shadow: 0 6px 24px rgba(0,0,0,0.25);
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 34px rgba(56,189,248,0.25);
+}
+
+.feature-card i {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #38bdf8;
+}
+
+/* ===========================================================
+   STATS SECTION
+=========================================================== */
+.wel.stats {
+  background: rgba(10,20,35,0.6);
+  padding: 3.5rem 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.stat strong {
+  color: #38bdf8;
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 3px;
+}
+
+.stat span {
+  color: #c6e6ff;
+  font-size: 1rem;
+}
+
+/* ===========================================================
+   FOOTER
+=========================================================== */
+footer {
+  background: rgba(10,20,35,0.85);
+  padding: 1.4rem 0;
+  text-align: center;
+  color: #9ecdfc;
+  font-size: 0.95rem;
+}

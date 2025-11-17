@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mini Projects – C Practice – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    /* Small inline helper styles for the new button and popup (keeps page styles intact) */
+    .cert-complete-wrap {
+      margin: 20px 0 8px;
+      display:flex;
+      justify-content:center;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .cert-complete-btn {
+      background: linear-gradient(90deg,#00ffe1,#00a7ff);
+      color:#000;
+      border:0;
+      padding:10px 16px;
+      border-radius:10px;
+      font-weight:700;
+      cursor:pointer;
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      box-shadow:0 8px 20px rgba(0,160,255,0.08);
+    }
+    .cert-complete-btn:hover { transform:translateY(-2px); transition:0.15s ease; }
+    .cert-secondary {
+      background:transparent;
+      color:inherit;
+      border:1px solid rgba(255,255,255,0.06);
+      padding:8px 12px;
+      border-radius:8px;
+      cursor:pointer;
+    }
+    .alg-popup {
+      position:fixed;
+      right:18px;
+      bottom:18px;
+      z-index:9999;
+      display:none;
+      background:linear-gradient(180deg,#081a22,#04121a);
+      padding:12px 14px;
+      border-radius:10px;
+      box-shadow:0 12px 40px rgba(0,0,0,0.6);
+      color:#eaf6ff;
+      font-weight:600;
+    }
+    .alg-popup .small { font-weight:400; font-size:13px; color:#9aa4b2; display:block; margin-top:4px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color:inherit;"><i class="fa-solid fa-laptop-code"></i> ALGONIMO</a>
+    </div>
+    <ul class="nav-links">
+     
+    </ul>
+  </nav>
+
+  <!-- ✅ Main Content -->
+  <main class="topic-page">
+
+    <h1><i class="fa-solid fa-diagram-project"></i> 13.3 Mini Projects (Calculator, Student DB, etc.)</h1>
+
+    <!-- ✅ Introduction -->
+    <section>
+      <h2><i class="fa-solid fa-briefcase"></i> Introduction</h2>
+      <p>
+        Mini projects combine multiple C concepts into real-world applications.
+        They improve your logic, structure, modularity, and overall coding confidence.
+      </p>
+    </section>
+
+    <!-- ✅ Project Idea List -->
+    <section>
+      <h2><i class="fa-solid fa-list-check"></i> Popular Mini Project Ideas</h2>
+      <ul>
+        <li>Simple Calculator (Add / Subtract / Multiply / Divide)</li>
+        <li>Student Database System (Add, Search, Delete Records)</li>
+        <li>Mini Quiz Game</li>
+        <li>ATM Machine Simulation</li>
+        <li>Basic To-Do List</li>
+        <li>Library Book Management</li>
+        <li>Temperature Converter</li>
+        <li>Guess the Number Game</li>
+        <li>Simple Voting System</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Roadmap Table -->
+    <section>
+      <h2><i class="fa-solid fa-road"></i> Mini Projects Roadmap</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Project</th>
+              <th>Concepts Used</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Project">Calculator</td>
+              <td data-label="Concepts Used">Switch, operators, input validation</td>
+            </tr>
+
+            <tr>
+              <td data-label="Project">Student DB</td>
+              <td data-label="Concepts Used">Structures, arrays, file handling</td>
+            </tr>
+
+            <tr>
+              <td data-label="Project">Quiz Game</td>
+              <td data-label="Concepts Used">Loops, conditions, scoring logic</td>
+            </tr>
+
+            <tr>
+              <td data-label="Project">ATM Simulation</td>
+              <td data-label="Concepts Used">Functions, loops, conditional logic</td>
+            </tr>
+
+            <tr>
+              <td data-label="Project">To-Do List</td>
+              <td data-label="Concepts Used">Arrays, string operations, menus</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Example Program -->
+    <section>
+      <h2><i class="fa-solid fa-calculator"></i> Example Mini Project: Simple Calculator</h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    char op;
+    float a, b;
+
+    printf("Enter operator (+, -, *, /): ");
+    scanf(" %c", &op);
+
+    printf("Enter two numbers: ");
+    scanf("%f %f", &a, &b);
+
+    switch (op) {
+        case '+': printf("Result = %.2f\n", a + b); break;
+        case '-': printf("Result = %.2f\n", a - b); break;
+        case '*': printf("Result = %.2f\n", a * b); break;
+        case '/':
+            if (b != 0)
+                printf("Result = %.2f\n", a / b);
+            else
+                printf("Error: Cannot divide by zero!\n");
+            break;
+        default:
+            printf("Invalid operator.\n");
+    }
+    return 0;
+}</code></pre>
+
+      <div class="output">
+        <strong>Sample Output:</strong><br>
+        Enter operator (+, -, *, /): *<br>
+        Enter two numbers: 6 7<br>
+        Result = 42.00
+      </div>
+    </section>
+
+    <!-- ✅ Try It Yourself Compiler -->
+    <section>
+      <h2><i class="fas fa-terminal"></i> Try It Yourself</h2>
+
+      <div class="code-section">
+        <textarea id="cCode" spellcheck="false">
+// Mini Project Template – ALGONIMO
+// Edit this template to build your own small project.
+
+#include <stdio.h>
+
+int main() {
+    int choice;
+    printf("1) Calculator\n2) Guess Game (Demo)\nChoose: ");
+    scanf("%d", &choice);
+
+    if (choice == 1) {
+        char op; float a, b;
+        printf("Enter operator: ");
+        scanf(" %c", &op);
+        printf("Enter numbers: ");
+        scanf("%f %f", &a, &b);
+
+        switch(op) {
+            case '+': printf("Result: %.2f\n", a + b); break;
+            case '-': printf("Result: %.2f\n", a - b); break;
+            case '*': printf("Result: %.2f\n", a * b); break;
+            case '/': 
+                if (b != 0) printf("Result: %.2f\n", a / b);
+                else printf("Cannot divide by zero.\n");
+                break;
+            default: printf("Invalid operator\n");
+        }
+    }
+    else if (choice == 2) {
+        int n = 7, g;
+        printf("Guess a number (1-10): ");
+        scanf("%d", &g);
+        if (g == n) printf("Correct!\n");
+        else printf("Wrong! Try again.\n");
+    }
+    else {
+        printf("Invalid choice.\n");
+    }
+
+    return 0;
+}
+        </textarea>
+
+        <div class="input-section">
+          <label for="userInput"><strong>Input (stdin):</strong></label>
+          <textarea id="userInput" placeholder="Example:
+1
++
+10 20"></textarea>
+        </div>
+
+        <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+        <div id="output" class="output-box">
+          <strong>Output:</strong> Output will appear here...
+        </div>
+      </div>
+    </section>
+
+    <!-- ✅ Tip -->
+    <section>
+      <h2><i class="fa-solid fa-lightbulb"></i> Pro Tip</h2>
+      <p>
+        Build your project in modules:
+      </p>
+      <ul>
+        <li>Input module</li>
+        <li>Processing module</li>
+        <li>Output module</li>
+        <li>Error handling</li>
+        <li>Optional file saving</li>
+      </ul>
+    </section>
+
+    <!-- ✅ Completion Message + Certificate Complete button -->
+    <div class="next-topic">
+      <p>
+        <strong><i class="fa-solid fa-circle-check"></i> 🎉 Congratulations!  
+        You’ve completed the <strong>C Practice + Mini Projects</strong> section!</strong>
+      </p>
+
+      <div class="cert-complete-wrap">
+        <!-- data-cert-url: change this relative path if your certificate file lives elsewhere -->
+        <button
+          id="certificateCompleteBtn"
+          class="cert-complete-btn"
+          data-cert-url="certificate.html"
+          title="Go to your certificate (opens certificate page)">
+          <i class="fa-solid fa-certificate"></i> Claim Certificate
+        </button>
+
+        <button id="maybeLaterBtn" class="cert-secondary" title="I'll claim later">
+          <i class="fa-regular fa-clock"></i> Maybe later
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- ✅ Scripts -->
+  <script src="../../../assets/js/topic.js"></script>
+  <script src="../../../assets/js/voice.js"></script>
+
+  <div id="algPopup" class="alg-popup" role="status" aria-live="polite">
+    <div id="algPopupTitle">Redirecting...</div>
+    <div id="algPopupMsg" class="small">Opening your certificate page now.</div>
+  </div>
+
+  <script>
+    // Certificate button: redirects to certificate page (relative), shows quick popup
+    (function () {
+      const btn = document.getElementById('certificateCompleteBtn');
+      const maybe = document.getElementById('maybeLaterBtn');
+      const popup = document.getElementById('algPopup');
+      const popupTitle = document.getElementById('algPopupTitle');
+      const popupMsg = document.getElementById('algPopupMsg');
+
+      btn?.addEventListener('click', (e) => {
+        const url = btn.getAttribute('data-cert-url') || 'certificate.html';
+        // show popup
+        popupTitle.textContent = 'Opening Certificate';
+        popupMsg.textContent = 'You will be taken to the certificate page now.';
+        popup.style.display = 'block';
+        // redirect after a short delay so popup is visible
+        setTimeout(() => {
+          // use location.href so it's a normal navigation
+          window.location.href = url;
+        }, 650);
+      });
+
+      maybe?.addEventListener('click', () => {
+        popupTitle.textContent = 'No problem';
+        popupMsg.textContent = 'You can claim your certificate anytime from the Course Hub.';
+        popup.style.display = 'block';
+        setTimeout(() => popup.style.display = 'none', 2200);
+      });
+    })();
+
+    // Placeholder runCCode function - your existing site code probably replaces this.
+    function runCCode() {
+      const code = document.getElementById('cCode').value;
+      const stdin = document.getElementById('userInput').value;
+      const outputEl = document.getElementById('output');
+      // Simple local demo echo (real compile/run integration would be server/wasm powered)
+      outputEl.innerHTML = '<strong>Output:</strong>\n<pre style="white-space:pre-wrap;background:#04121a;padding:12px;border-radius:8px;color:#eaf6ff;">' +
+        'This demo page does not compile C locally.\nCopy the code to your IDE or connect to your compiler service.\n\n--- stdin ---\n' +
+        (stdin || '(none)') +
+        '\n\n--- code preview ---\n' + (code.substring(0, 400) + (code.length>400? '\n\n... (truncated)':'') ) +
+        '</pre>';
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta 
+    name="viewport" 
+    content="width=device-width, initial-scale=1.0, maximum-scale=1"
+  />
+  
+  <title>ALGONIMO — VS Code Compiler</title>
+
+  <!-- Updated Glassy Futuristic ALGONIMO Compiler CSS -->
+  <link rel="stylesheet" href="../assets/page css/compiler.css" />
+
+  <!-- Monaco Editor Setup -->
+  <script>
+    window.require = { 
+      paths: { vs: "https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs" } 
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.45.0/min/vs/loader.min.js"></script>
+
+  <!-- Futuristic Orbitron -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+
+  <div id="app">
+
+    <!-- ✅ TOP BAR – Glassy + Responsive -->
+    <header class="topbar glass">
+
+      <!-- ✅ CLICKABLE ALGONIMO (redirect to home page) -->
+      <div class="brand" onclick="location.href='../pages/main.html'" style="cursor:pointer;">
+        <span class="logo">ALGONIMO</span>
+        <span class="subtitle">VS Code–Level Compiler</span>
+      </div>
+
+      <div class="actions">
+
+        <!-- Language Dropdown (Neon Select) -->
+        <select id="languageSelect" class="icon-select"></select>
+
+        <!-- Run Controls -->
+        <button id="runBtn" class="primary">▶ Run</button>
+        <button id="stopBtn" disabled>⛔ Stop</button>
+
+        <!-- Debug Controls -->
+        <button id="debugToggleBtn">🐞 Debug</button>
+        <button id="debugStepBtn" disabled>➡ Step</button>
+        <button id="debugStopBtn" disabled>🛑 Stop</button>
+
+        <div class="divider"></div>
+
+        <!-- File Controls -->
+        <button id="newFileBtn">＋ New</button>
+        <button id="renameFileBtn">✎ Rename</button>
+        <button id="deleteFileBtn">🗑 Delete</button>
+
+        <div class="divider"></div>
+
+        <!-- Save / Download -->
+        <button id="saveBtn">💾 Save</button>
+        <button id="downloadBtn">⬇ Download</button>
+
+        <div class="divider"></div>
+
+        <!-- Theme Switch -->
+        <button id="themeBtn">🌗 Theme</button>
+      </div>
+    </header>
+
+    <!-- ✅ LAYOUT GRID -->
+    <main class="layout">
+
+      <!-- ✅ FILE EXPLORER -->
+      <aside class="explorer glass">
+        <div class="explorer-head">EXPLORER</div>
+        <ul id="fileList" class="file-list"></ul>
+      </aside>
+
+      <!-- ✅ EDITOR ZONE -->
+      <section class="editor-zone glass">
+        <div class="tabs" id="tabs"></div>
+        <div id="editor" class="monaco-host"></div>
+      </section>
+
+      <!-- ✅ RIGHT PANEL STACK -->
+      <aside class="right-panel">
+
+        <!-- Input Panel -->
+        <div class="panel glass">
+          <div class="panel-title">Program Input (stdin)</div>
+          <textarea id="stdin" spellcheck="false"></textarea>
+        </div>
+
+        <!-- Output Panel -->
+        <div class="panel glass">
+          <div class="panel-title">Output</div>
+          <pre id="stdout" class="io"></pre>
+        </div>
+
+        <!-- Error Output -->
+        <div class="panel glass">
+          <div class="panel-title">Errors</div>
+          <pre id="stderr" class="io"></pre>
+        </div>
+
+        <!-- Debug Info Panel -->
+        <div class="panel glass" id="debugPanel" style="display:none;">
+          <div class="panel-title">Debug Information</div>
+          <pre id="debugInfo" class="io"></pre>
+        </div>
+
+      </aside>
+    </main>
+
+  </div>
+
+  <!-- Compiler JS -->
+  <script src="../assets/js/compiler.js"></script>
+</body>
+</html>

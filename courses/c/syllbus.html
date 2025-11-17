@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>C Programming Overview – ALGONIMO</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Merriweather:wght@700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* === GLOBAL === */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", sans-serif;
+      color: #e3f2fd;
+      background: #000c1f;
+      overflow-x: hidden;
+      line-height: 1.6;
+      position: relative;
+    }
+    a { text-decoration: none; color: #38bdf8; }
+
+    /* === Futuristic Background === */
+    #bg-animation {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      z-index: -1;
+      background: radial-gradient(circle at top left, #001933, #000c1f);
+      pointer-events: none;
+    }
+
+    /* === HEADER === */
+    header {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+      position: relative;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 20, 40, 0.6);
+      border-bottom: 1px solid rgba(56,189,248,0.25);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+    }
+    header h1 {
+      font-family: 'Merriweather', serif;
+      color: #38bdf8;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      text-shadow: 0 0 15px rgba(56,189,248,0.4);
+    }
+    header p {
+      color: #9eb9e8;
+      margin-top: 0.6rem;
+      max-width: 680px;
+      margin-inline: auto;
+      font-size: 1rem;
+    }
+
+    /* === MAIN CONTENT === */
+    main {
+      max-width: 900px;
+      margin: 2rem auto 4rem;
+      padding: 0 1.2rem;
+    }
+
+    .section-box {
+      background: rgba(10,20,40,0.55);
+      border: 1px solid rgba(56,189,248,0.25);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border-radius: 12px;
+      padding: 1.8rem 1.4rem;
+      margin-bottom: 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .section-box:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(56,189,248,0.25);
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      color: #38bdf8;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .section-title i {
+      color: #38bdf8;
+      animation: floatIcon 3s ease-in-out infinite alternate;
+    }
+    @keyframes floatIcon { to { transform: translateY(-5px); opacity: 0.9; } }
+
+    .section-content ul {
+      list-style: none;
+      padding: 0;
+    }
+    .section-content li {
+      margin: 0.6rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      color: #e3f2fd;
+    }
+    .section-content li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: #38bdf8;
+      font-weight: bold;
+    }
+
+    /* === CTA BUTTON === */
+    .cta-center {
+      display: flex;
+      justify-content: center;
+      margin: 2rem 0 0;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: rgba(56,189,248,0.12);
+      color: #38bdf8;
+      border: 1px solid rgba(56,189,248,0.4);
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      transition: all 0.35s ease;
+      box-shadow: 0 0 10px rgba(56,189,248,0.15), inset 0 0 10px rgba(56,189,248,0.1);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .cta-btn i { transition: transform 0.3s ease; }
+    .cta-btn:hover i { transform: translateX(5px); }
+    .cta-btn:hover {
+      background: rgba(56,189,248,0.25);
+      color: #fff;
+      border-color: rgba(56,189,248,0.6);
+      box-shadow: 0 0 20px rgba(56,189,248,0.35);
+      transform: translateY(-3px);
+    }
+
+    /* Pulse border effect */
+    .cta-btn::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      border: 2px solid rgba(56,189,248,0.35);
+      animation: pulseGlow 2s infinite ease-in-out;
+      pointer-events: none;
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.2; transform: scale(1); }
+      50% { opacity: 0.6; transform: scale(1.05); }
+    }
+
+    /* === FOOTER === */
+    footer {
+      text-align: center;
+      padding: 1.5rem 1rem;
+      border-top: 1px solid rgba(56,189,248,0.2);
+      background: rgba(10,20,40,0.6);
+      backdrop-filter: blur(10px);
+      color: #9eb9e8;
+      font-size: 0.9rem;
+    }
+
+    /* === SCROLL REVEAL === */
+    .reveal {
+      transform: translateY(30px);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+    .reveal-visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      header { padding: 3rem 1rem 2rem; }
+      .section-title { font-size: 1.15rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Futuristic Background -->
+  <canvas id="bg-animation"></canvas>
+
+  <!-- Header -->
+  <header>
+    <h1><i class="fa-solid fa-code"></i> C Programming Overview</h1>
+    <p>Discover why C is still the foundation of all modern programming.</p>
+  </header>
+
+  <!-- Main -->
+  <main>
+    <div class="cta-center">
+      <a href="c.html" class="cta-btn">Go to C Syllabus <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+    <section class="section-box reveal">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-lightbulb"></i> Why Learn C?</h2>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Foundation for languages like C++, Java, and Python</li>
+          <li>Teaches structured logic and efficient coding</li>
+          <li>Reveals how systems manage memory and data</li>
+          <li>Essential for embedded and performance-based software</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-box reveal">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-microchip"></i> Where Is C Used?</h2>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Operating Systems and Kernels (Linux, Windows)</li>
+          <li>IoT Devices, Robotics, and Hardware Drivers</li>
+          <li>Game Engines and Compilers</li>
+          <li>Network and Security Tools</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-box reveal">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-bolt"></i> Advantages</h2>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>High-speed performance</li>
+          <li>Direct memory control</li>
+          <li>Portable across platforms</li>
+          <li>Rich community and resources</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-box reveal">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-triangle-exclamation"></i> Limitations</h2>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Lacks Object-Oriented structure</li>
+          <li>Requires manual memory management</li>
+          <li>No built-in GUI capabilities</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section-box reveal">
+      <div class="section-header">
+        <h2 class="section-title"><i class="fas fa-network-wired"></i> Modern Relevance</h2>
+      </div>
+      <div class="section-content">
+        <ul>
+          <li>Critical in OS and hardware-level development</li>
+          <li>Used in cybersecurity and low-level programming</li>
+          <li>Continues to power performance-critical systems</li>
+        </ul>
+      </div>
+      <div class="cta-center">
+        <a href="c.html" class="cta-btn">Go to C Syllabus <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 <strong>ALGONIMO</strong> — Learn, Code, Evolve.
+  </footer>
+
+  <!-- Reveal Animation -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      const windowHeight = window.innerHeight;
+      revealEls.forEach(el => {
+        if (el.getBoundingClientRect().top < windowHeight - 100)
+          el.classList.add('reveal-visible');
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    window.addEventListener('load', revealOnScroll);
+  </script>
+
+  <!-- Background Animation -->
+  <script>
+    const canvas = document.getElementById("bg-animation");
+    const ctx = canvas.getContext("2d");
+    let width = window.innerWidth, height = window.innerHeight;
+    canvas.width = width; canvas.height = height;
+    let t = 0;
+
+    function animate() {
+      ctx.clearRect(0, 0, width, height);
+      const bg = ctx.createLinearGradient(0, 0, width, height);
+      bg.addColorStop(0, "#000814");
+      bg.addColorStop(1, "#001933");
+      ctx.fillStyle = bg;
+      ctx.fillRect(0, 0, width, height);
+
+      const layers = 3;
+      for (let i = 0; i < layers; i++) {
+        const amplitude = 35 + i * 20;
+        const freq = 0.0025 + i * 0.0008;
+        const waveColor = `rgba(56,189,248,${0.06 + i * 0.05})`;
+        ctx.beginPath();
+        for (let x = 0; x <= width; x += 2) {
+          const y = height / 2 + Math.sin(x * freq + t / (80 - i * 8)) * amplitude;
+          if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+        }
+        ctx.strokeStyle = waveColor;
+        ctx.lineWidth = 1.2;
+        ctx.shadowColor = "rgba(56,189,248,0.4)";
+        ctx.shadowBlur = 6;
+        ctx.stroke();
+      }
+
+      t += 0.5;
+      requestAnimationFrame(animate);
+    }
+    animate();
+
+    window.addEventListener("resize", () => {
+      width = canvas.width = window.innerWidth;
+      height = canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>

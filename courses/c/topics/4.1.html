@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arithmetic Operators in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+<nav class="nav">
+  <div class="logo">
+    <a href="../c.html">ALGONIMO</a>
+  </div>
+  <ul class="nav-links">
+  </ul>
+</nav>
+
+  <!-- ✅ Topic Content -->
+  <main class="topic-page">
+
+    <h1>4.1 Arithmetic Operators in C</h1>
+
+    <!-- ✅ Explanation -->
+    <section>
+      <p>
+        Arithmetic operators in C are used to perform mathematical operations such as 
+        addition, subtraction, multiplication, division, and modulus. These operators 
+        work on numeric data types (like <code>int</code> and <code>float</code>) and are 
+        used in almost every C program.
+      </p>
+
+      <div class="feature-list">
+        <ul>
+          <li>Perform basic mathematical calculations</li>
+          <li>Used with integers and floating-point numbers</li>
+          <li>Follow operator precedence (BODMAS-like rules)</li>
+          <li>Commonly used inside expressions and formulas</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ✅ Glass Table -->
+    <section>
+      <h2><i class="fas fa-table"></i> Overview of Arithmetic Operators</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Operator</th>
+              <th>Symbol</th>
+              <th>Description</th>
+              <th>Example</th>
+              <th>Output</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Operator">Addition</td>
+              <td data-label="Symbol"><code>+</code></td>
+              <td data-label="Description">Adds two values</td>
+              <td data-label="Example">5 + 3</td>
+              <td data-label="Output">8</td>
+            </tr>
+
+            <tr>
+              <td data-label="Operator">Subtraction</td>
+              <td data-label="Symbol"><code>-</code></td>
+              <td data-label="Description">Subtracts second from first</td>
+              <td data-label="Example">10 - 4</td>
+              <td data-label="Output">6</td>
+            </tr>
+
+            <tr>
+              <td data-label="Operator">Multiplication</td>
+              <td data-label="Symbol"><code>*</code></td>
+              <td data-label="Description">Multiplies two numbers</td>
+              <td data-label="Example">6 * 3</td>
+              <td data-label="Output">18</td>
+            </tr>
+
+            <tr>
+              <td data-label="Operator">Division</td>
+              <td data-label="Symbol"><code>/</code></td>
+              <td data-label="Description">Divides first by second</td>
+              <td data-label="Example">9 / 2</td>
+              <td data-label="Output">4 (int), 4.5 (float)</td>
+            </tr>
+
+            <tr>
+              <td data-label="Operator">Modulus</td>
+              <td data-label="Symbol"><code>%</code></td>
+              <td data-label="Description">Returns remainder</td>
+              <td data-label="Example">10 % 3</td>
+              <td data-label="Output">1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ EXPLANATIONS WITH CODE -->
+    <section>
+      <h2><i class="fas fa-plus-circle"></i> 1. Addition (+)</h2>
+      <p>Adds two numbers and returns their sum.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 5, b = 3;
+    int result = a + b;
+    printf("Sum = %d", result);
+    return 0;
+}</code></pre>
+
+      <div class="mentor-box"><i class="fas fa-lightbulb"></i> Output: <strong>Sum = 8</strong></div>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-minus-circle"></i> 2. Subtraction (-)</h2>
+      <p>Subtracts the second number from the first.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int x = 10, y = 4;
+    printf("Difference = %d", x - y);
+    return 0;
+}</code></pre>
+
+      <div class="mentor-box"><i class="fas fa-lightbulb"></i> Output: <strong>Difference = 6</strong></div>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-times-circle"></i> 3. Multiplication (*)</h2>
+      <p>Multiplies two values.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 6, b = 3;
+    printf("Product = %d", a * b);
+    return 0;
+}</code></pre>
+
+      <div class="mentor-box"><i class="fas fa-lightbulb"></i> Output: <strong>Product = 18</strong></div>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-divide"></i> 4. Division (/)</h2>
+      <p>
+        Performs division.  
+        <strong>Important:</strong> dividing two integers results in <em>integer division</em>.
+      </p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 9, b = 2;
+    printf("Quotient = %d", a / b);
+    return 0;
+}</code></pre>
+
+      <div class="mentor-box"><i class="fas fa-lightbulb"></i> Output: <strong>Quotient = 4</strong></div>
+
+      <p><strong>Floating division example:</strong></p>
+
+<pre><code>printf("%f", 9.0 / 2);  // 4.500000</code></pre>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-percent"></i> 5. Modulus (%)</h2>
+      <p>Returns the remainder of a division.</p>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 3;
+    printf("Remainder = %d", a % b);
+    return 0;
+}</code></pre>
+
+      <div class="mentor-box"><i class="fas fa-lightbulb"></i> Output: <strong>Remainder = 1</strong></div>
+    </section>
+
+    <!-- ✅ TRY IT YOURSELF COMPILER -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try It Yourself (Compiler)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    int a = 15, b = 4;
+    printf("a + b = %d\n", a + b);
+    printf("a - b = %d\n", a - b);
+    printf("a * b = %d\n", a * b);
+    printf("a / b = %d\n", a / b);
+    printf("a %% b = %d\n", a % b);
+    return 0;
+}
+</textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Enter input only if required..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="../c.html" class="prev-btn"><i class="fas fa-arrow-left"></i> Back to Syllabus</a>
+
+      <a href="4.2.html" class="next-btn">
+        Next Topic: Relational Operators <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+<script src="../../../assets/js/topic.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Escape Sequences in C – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a { text-decoration: none; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ✅ Top Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- ✅ Topic Content -->
+  <main class="topic-page">
+
+    <h1>3.6 Escape Sequences in C</h1>
+
+    <!-- ✅ What Are Escape Sequences -->
+    <section>
+      <h2><i class="fas fa-book"></i> What Are Escape Sequences?</h2>
+      <p>
+        Escape sequences are special character combinations used in C programming to represent 
+        actions or characters that can’t be typed directly, such as a new line, tab, or printing 
+        quotes inside a string.  
+        They always begin with a <strong>backslash ( \ )</strong>.
+      </p>
+
+      <div class="feature-list">
+        <ul>
+          <li>Used for formatting text output</li>
+          <li>Represent invisible control characters</li>
+          <li>Allow printing quotes and slashes</li>
+          <li>Used inside <code>printf()</code> and strings</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ✅ Escape Sequence Table -->
+    <section>
+      <h2><i class="fas fa-list-alt"></i> Common Escape Sequences</h2>
+
+      <div class="alg-table-wrap">
+        <table class="alg-table">
+          <thead>
+            <tr>
+              <th>Escape Sequence</th>
+              <th>Description</th>
+              <th>Example Output</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td data-label="Escape Sequence"><code>\n</code></td>
+              <td data-label="Description">New Line</td>
+              <td data-label="Example Output">Hello<br>World</td>
+            </tr>
+
+            <tr>
+              <td data-label="Escape Sequence"><code>\t</code></td>
+              <td data-label="Description">Tab Space</td>
+              <td data-label="Example Output">Hello     World</td>
+            </tr>
+
+            <tr>
+              <td data-label="Escape Sequence"><code>\\</code></td>
+              <td data-label="Description">Backslash</td>
+              <td data-label="Example Output">\</td>
+            </tr>
+
+            <tr>
+              <td data-label="Escape Sequence"><code>\'</code></td>
+              <td data-label="Description">Single Quote</td>
+              <td data-label="Example Output">'</td>
+            </tr>
+
+            <tr>
+              <td data-label="Escape Sequence"><code>\"</code></td>
+              <td data-label="Description">Double Quote</td>
+              <td data-label="Example Output">"</td>
+            </tr>
+
+            <tr>
+              <td data-label="Escape Sequence"><code>\r</code></td>
+              <td data-label="Description">Carriage Return</td>
+              <td data-label="Example Output">(Cursor moves to line start)</td>
+            </tr>
+
+            <tr>
+              <td data-label="Escape Sequence"><code>\b</code></td>
+              <td data-label="Description">Backspace</td>
+              <td data-label="Example Output">(Removes previous character)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ✅ Example Program -->
+    <section>
+      <h2><i class="fas fa-code"></i> Example Program</h2>
+
+<pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    printf("Hello\\nWorld:\\n");
+    printf("Line1\\tTabbed\\n");
+    printf("Printing quotes: \\\"Hello\\\"\\n");
+    printf("Backslash: \\\\");
+    return 0;
+}
+</code></pre>
+    </section>
+
+    <!-- ✅ Interactive Compiler -->
+    <section class="code-section">
+      <h2><i class="fas fa-terminal"></i> Try It Yourself (Compiler)</h2>
+
+<textarea id="cCode" spellcheck="false">
+#include <stdio.h>
+
+int main() {
+    printf("Name:\tALGONIMO\\n");
+    printf("Line1\\nLine2\\nLine3\\n");
+    printf("Double Quote: \\"Hello\\"\\n");
+    printf("Backslash: \\\\");
+    return 0;
+}
+</textarea>
+
+      <div class="input-section">
+        <label><strong>Input (stdin):</strong></label>
+        <textarea id="userInput" placeholder="Enter input only if required..."></textarea>
+      </div>
+
+      <button class="run-btn" onclick="runCCode()">▶ Run Code</button>
+
+      <div id="output" class="output-box">
+        <strong>Output:</strong> Output will appear here...
+      </div>
+    </section>
+
+    <!-- ✅ Navigation Buttons -->
+    <div class="topic-navigation">
+
+      <a href="3.5.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous: Comments in C
+      </a>
+
+      <a href="../c.html" class="next-btn">
+        Back to Syllabus <i class="fas fa-arrow-right"></i>
+      </a>
+
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+<script src="../../../assets/js/topic.js"></script>
+</body>
+</html>

@@ -1,0 +1,331 @@
+/* ============================================================
+   ALGONIMO – Clean Professional UI (Final Version)
+   ✅ No bubble animations
+   ✅ No breathing effect
+   ✅ No hover move effect
+   ✅ No parallax
+   ✅ No glass chat box background
+   ✅ Only clean, flat, modern UI
+   ✅ Professional Neo-Grid background
+   ✅ Particles enabled
+============================================================ */
+
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #eaf7ff;
+  --ink-dim: #b9c6d9;
+  --line: rgba(255,255,255,0.14);
+
+  --neo-cyan: #22e7ff;
+  --neo-blue: #0094ff;
+}
+
+/* GLOBAL */
+html, body {
+  height: 100%;
+  color: var(--ink);
+  font-family: "Poppins", system-ui, sans-serif;
+  background: transparent;
+  overflow-x: hidden;
+}
+
+/* ============================================================
+   PROFESSIONAL BACKGROUND
+============================================================ */
+
+.pro-bg-layer {
+  position: fixed;
+  inset: 0;
+  z-index: -6;
+  background:
+    radial-gradient(850px 600px at 20% 20%, rgba(0, 200, 255, 0.22), transparent 75%),
+    radial-gradient(850px 650px at 80% 30%, rgba(0, 140, 255, 0.18), transparent 75%),
+    linear-gradient(140deg, #06080d 0%, #0a0d15 45%, #0c111a 100%);
+}
+
+.pro-bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -5;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none;
+}
+
+/* PARTICLES */
+#particleCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: -4;
+  pointer-events: none;
+  opacity: .9;
+}
+
+/* ============================================================
+   HEADER
+============================================================ */
+
+.ai-header {
+  text-align: center;
+  padding: 3rem 1rem 1rem;
+}
+
+.ai-title {
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 800;
+  color: #eaf7ff;
+  text-shadow:
+    0 0 12px rgba(34,231,255,0.18),
+    0 0 22px rgba(34,231,255,0.10);
+}
+
+.ai-subtitle {
+  margin-top: .45rem;
+  color: var(--ink-dim);
+}
+
+/* ============================================================
+   CHAT AREA
+============================================================ */
+
+.chat-container {
+  width: min(920px, 92%);
+  margin: 1rem auto 0;
+  padding-bottom: 160px;
+}
+
+/* ✅ CLEAN CHAT BOX — NO GLASS BACKGROUND */
+.chat-box {
+  padding: 1.6rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(12,18,28,0.55);
+  backdrop-filter: blur(4px);
+  max-height: calc(100vh - 330px);
+  overflow-y: auto;
+  scroll-behavior: smooth;
+}
+
+/* Scrollbar */
+.chat-box::-webkit-scrollbar { width: 8px; }
+.chat-box::-webkit-scrollbar-thumb {
+  background: rgba(34,231,255,0.25);
+  border-radius: 10px;
+}
+
+/* ============================================================
+   MESSAGES
+============================================================ */
+
+.message {
+  display: flex;
+  margin-bottom: 1.3rem;
+}
+
+/* USER → RIGHT */
+.message.user {
+  justify-content: flex-end;
+}
+
+/* BOT → LEFT */
+.message.bot {
+  justify-content: flex-start;
+}
+
+/* MESSAGE BUBBLES – CLEAN, NO ANIMATION */
+.bubble {
+  max-width: 75%;
+  padding: 1rem 1.15rem;
+  border-radius: 14px;
+  line-height: 1.7;
+  font-size: 1rem;
+  position: relative;
+  transition: none !important;
+}
+
+/* ✅ Remove bubble hover animation */
+.bubble:hover {
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+/* BOT BUBBLE */
+.message.bot .bubble {
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #e9f8ff;
+}
+
+/* USER BUBBLE */
+.message.user .bubble {
+  background: linear-gradient(135deg, #00b2ff, #0073ff);
+  border: 1px solid rgba(255,255,255,0.22);
+  color: #fff;
+}
+
+/* ✅ REMOVE breathe animation */
+.breathe {
+  animation: none !important;
+}
+
+/* Copy Button */
+.copy-btn {
+  position: absolute;
+  top: -12px;
+  right: -12px;
+  background: rgba(34,231,255,0.25);
+  border: 1px solid rgba(34,231,255,0.45);
+  padding: 8px 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .85rem;
+  box-shadow: 0 0 10px rgba(34,231,255,0.4);
+}
+
+/* Code Block */
+.bubble pre {
+  background: rgba(0,0,0,0.65);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 12px;
+  border-radius: 12px;
+  overflow-x: auto;
+}
+
+/* Inline Code */
+.bubble code:not(pre code) {
+  background: rgba(0,0,0,0.55);
+  border: 1px solid rgba(255,255,255,0.12);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* Typing Dots Animation (Keep) */
+.typing-dots {
+  display: flex;
+  gap: 6px;
+}
+.typing-dots span {
+  width: 7px;
+  height: 7px;
+  background: #bfefff;
+  border-radius: 50%;
+  animation: dotJump 1.2s infinite ease-in-out;
+}
+@keyframes dotJump {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ============================================================
+   CHAT OPTIONS
+============================================================ */
+
+.chat-options {
+  position: fixed;
+  right: 20px;
+  bottom: 108px;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  z-index: 20;
+}
+
+.chat-options button {
+  border: none;
+  padding: .7rem .9rem;
+  font-weight: 600;
+  font-size: .92rem;
+  background: linear-gradient(135deg, #95ebff, #22e7ff);
+  color: #052028;
+  border-radius: 12px;
+  cursor: pointer;
+}
+
+/* ============================================================
+   INPUT DOCK
+============================================================ */
+
+.input-dock {
+  position: fixed;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(920px,92%);
+  padding: .85rem;
+  display: flex;
+  gap: .85rem;
+  background: rgba(255,255,255,.10);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+}
+
+.input-dock input {
+  flex: 1;
+  padding: 1rem 1rem;
+  background: rgba(255,255,255,.18);
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 14px;
+  color: #eaf9ff;
+}
+
+.input-dock button {
+  background: linear-gradient(135deg, #00c8ff, #006dff);
+  border: none;
+  border-radius: 14px;
+  padding: .95rem 1.15rem;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 768px) {
+  .bubble { max-width: 88%; }
+  .chat-box { max-height: calc(100vh - 300px); }
+}
+
+@media (max-width: 550px) {
+  .chat-options button { font-size: .85rem; }
+}
+.speak-btn {
+  position: absolute;
+  top: -14px;
+  right: 40px;
+  padding: 9px 12px;
+  background: rgba(34,231,255,.25);
+  border: 1px solid rgba(34,231,255,.45);
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: .85rem;
+  color: #082028;
+  box-shadow: 
+    0 0 18px rgba(34,231,255,.55),
+    inset 0 0 10px rgba(255,255,255,.18);
+  transition: .25s ease;
+}
+
+.speak-btn:hover {
+  transform: scale(1.15);
+}
+.tts-line {
+  display: block;
+  transition: background 0.2s;
+}
+
+.tts-highlight {
+  background: rgba(34,231,255,0.25);
+  padding: 4px;
+  border-radius: 6px;
+}

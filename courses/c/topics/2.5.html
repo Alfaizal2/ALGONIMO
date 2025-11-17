@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>main() Function Explained – ALGONIMO</title>
+
+  <link rel="stylesheet" href="../../../assets/course css/topics.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+
+  <style>
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Navigation -->
+  <nav class="nav">
+    <div class="logo">
+      <a href="../c.html" style="color: inherit;">ALGONIMO</a>
+    </div>
+  </nav>
+
+  <!-- Topic Content -->
+  <main class="topic-page">
+
+    <h1>2.5 main() Function Explained</h1>
+
+    <section>
+      <h2><i class="fas fa-book"></i> What is <code>main()</code>?</h2>
+      <p>
+        The <code>main()</code> function is the <strong>entry point</strong> of every C program.
+        When your program starts, the operating system automatically calls <code>main()</code>.
+        Without <code>main()</code>, your program cannot run.
+      </p>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-thumbtack"></i> Standard Syntax</h2>
+
+<pre><code>int main() {
+    // Code here
+    return 0;
+}</code></pre>
+
+      <p>This is the most common and most recommended version of <code>main()</code>.</p>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-search"></i> Explanation of Each Part</h2>
+      <ul>
+        <li><strong>int</strong> – The return type.  
+          It tells the OS the program’s result. <code>0</code> means success.</li>
+
+        <li><strong>main</strong> – The function name.  
+          The compiler looks for <code>main()</code> to begin execution.</li>
+
+        <li><strong>()</strong> – Parentheses for parameters (even if empty).</li>
+
+        <li><strong>return 0;</strong> – Sends a success signal back to the OS.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2><i class="fas fa-lightbulb"></i> Common Variants of <code>main()</code></h2>
+
+<pre><code>// 1. With command-line arguments (standard)
+int main(int argc, char *argv[]) {
+    return 0;
+}
+
+// 2. Non-standard version (compiler-specific)
+void main() {
+    // Avoid using this — not valid in standard C
+}</code></pre>
+
+      <ul>
+        <li><strong>int main(int argc, char *argv[])</strong>  
+          Used when your program accepts command-line inputs.</li>
+        <li><strong>void main()</strong>  
+          Not standard — avoid unless using microcontrollers.</li>
+      </ul>
+    </section>
+
+    <section>
+  <h2><i class="fas fa-check-circle"></i> Summary</h2>
+  <ul>
+    <li>Every C program must have exactly one <code>main()</code> function.</li>
+    <li>Execution of the program always begins in <code>main()</code>.</li>
+    <li>Always return <code>0</code> in standard C programs.</li>
+    <li>Use the command-line version only when needed.</li>
+  </ul>
+</section>
+
+
+    <!-- Navigation Buttons -->
+    <div class="topic-navigation">
+      <a href="2.4.html" class="prev-btn"><i class="fas fa-arrow-left"></i> Previous: Structure of a C Program</a>
+      <a href="../c.html" class="next-btn">Back to Syllabus <i class="fas fa-arrow-right"></i></a>
+    </div>
+
+  </main>
+
+  <script src="../../../assets/js/voice.js"></script>
+
+</body>
+</html>
